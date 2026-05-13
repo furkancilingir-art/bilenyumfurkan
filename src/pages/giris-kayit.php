@@ -24,7 +24,7 @@ $girisImgBase = $pricingImgWebBase;
 <header class="checkout-top">
   <div class="checkout-top-inner">
     <a class="checkout-logo" href="landing-reference.php" aria-label="Bilenyum ana sayfa">
-      <img src="../../assets/logo.svg" alt="Bilenyum" width="160" height="40" decoding="async" />
+      <img src="../../assets/logo.png" alt="Bilenyum" width="160" height="40" decoding="async" />
     </a>
     <div class="checkout-top-help">
       <p>Giriş yapma işlemleriniz ile ilgili problem yaşıyorsanız bize ulaşabilirsiniz.</p>

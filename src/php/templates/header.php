@@ -5,8 +5,8 @@ $nav_active = $nav_active ?? '';
   <div class="nav-inner">
     <a href="landing-reference.php" class="logo" aria-label="Bilenyum ana sayfa">
       <picture>
-        <source media="(max-width: 640px)" srcset="../../assets/emblem.svg" />
-        <img src="../../assets/logo.svg" alt="Bilenyum" class="logo-img" decoding="async" />
+        <source media="(max-width: 640px)" srcset="../components/images/bilenyum-emblem.png" />
+        <img src="../../assets/logo.png" alt="Bilenyum" class="logo-img" decoding="async" />
       </picture>
     </a>
     <nav class="nav-links" aria-label="Ana menü">

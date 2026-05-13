@@ -1,9 +1,9 @@
 <?php
 /**
  * Bize Ulaşın — iletişim kanalları, form, harita, kurumsal şeffaflık.
- * Kurumsal amblem: repo kökündeki assets (Vercel’de /assets/… olarak yeniden yazılır).
+ * Kurumsal amblem: src/components/images/bilenyum-emblem.png (Vercel: /src/components/images/…).
  */
-$iletisim_emblem = '../../assets/emblem.svg';
+$iletisim_emblem = '../components/images/bilenyum-emblem.png';
 ?>
 <div class="iletisim-cosmos-band">
   <div class="iletisim-cosmos-bg" aria-hidden="true">

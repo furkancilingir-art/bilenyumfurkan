@@ -19,8 +19,14 @@ if (existsSync(componentsSrc)) {
   console.warn('vercel-build: src/components bulunamadı, atlanıyor.');
 }
 
-const assetsSrc = path.join(root, 'assets');
 const assetsDest = path.join(root, 'public', 'assets');
+let assetsSrc = path.join(root, 'assets');
+if (!existsSync(assetsSrc)) {
+  const assetsAlt = path.join(root, 'Assets');
+  if (existsSync(assetsAlt)) {
+    assetsSrc = assetsAlt;
+  }
+}
 if (existsSync(assetsSrc)) {
   mkdirSync(path.join(root, 'public'), { recursive: true });
   cpSync(assetsSrc, assetsDest, { recursive: true });

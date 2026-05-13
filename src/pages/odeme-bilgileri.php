@@ -380,7 +380,7 @@ if ($normOld !== null) {
 <header class="checkout-top">
   <div class="checkout-top-inner">
     <a class="checkout-logo" href="landing-reference.php" aria-label="Bilenyum ana sayfa">
-      <img src="../../assets/logo.svg" alt="Bilenyum" width="160" height="40" decoding="async" />
+      <img src="../../assets/logo.png" alt="Bilenyum" width="160" height="40" decoding="async" />
     </a>
     <div class="checkout-top-help">
       <p>Satın alma işlemleriniz ile ilgili bilgi almak isterseniz bize ulaşabilirsiniz.</p>
@@ -932,7 +932,7 @@ if ($normOld !== null) {
     <div class="checkout-footer-tier1">
       <div class="checkout-footer-brand">
         <a class="checkout-footer-logo" href="landing-reference.php">
-          <img src="../../assets/logo.svg" alt="Bilenyum" width="180" height="44" decoding="async" />
+          <img src="../../assets/logo.png" alt="Bilenyum" width="180" height="44" decoding="async" />
         </a>
         <p class="checkout-footer-tagline">Öğrenmenin dijital hali</p>
         <p class="checkout-footer-desc">Canlı dersler, kayıt arşivi ve veli paneli ile Türkiye’de online eğitimde şeffaf deneyim.</p>

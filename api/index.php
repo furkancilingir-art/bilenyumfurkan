@@ -88,26 +88,24 @@ $html = preg_replace_callback(
     $html
 );
 
-$onVercel = getenv('VERCEL') === '1' || getenv('VERCEL') === 'true';
-if ($onVercel) {
-    // Kökten mutlak yol: tarayıcı her zaman https + aynı host kullanır; mixed content olmaz.
-    $pairs = [
-        'href="../components/' => 'href="/src/components/',
-        "href='../components/" => "href='/src/components/",
-        'src="../components/' => 'src="/src/components/',
-        "src='../components/" => "src='/src/components/",
-        'srcset="../components/' => 'srcset="/src/components/',
-        "srcset='../components/" => "srcset='/src/components/",
-        'href="../../assets/' => 'href="/assets/',
-        "href='../../assets/" => "href='/assets/",
-        'src="../../assets/' => 'src="/assets/',
-        "src='../../assets/" => "src='/assets/",
-        'srcset="../../assets/' => 'srcset="/assets/',
-        "srcset='../../assets/" => "srcset='/assets/",
-    ];
-    foreach ($pairs as $from => $to) {
-        $html = str_replace($from, $to, $html);
-    }
+// Bu dosya yalnızca Vercel üzerinden sunulur; göreli yollar /slug sayfalarında kırılır.
+// PHP ortamında VERCEL=1 her zaman gelmeyebilir — bu yüzden dönüşümler her zaman uygulanır.
+$pairs = [
+    'href="../components/' => 'href="/src/components/',
+    "href='../components/" => "href='/src/components/",
+    'src="../components/' => 'src="/src/components/',
+    "src='../components/" => "src='/src/components/",
+    'srcset="../components/' => 'srcset="/src/components/',
+    "srcset='../components/" => "srcset='/src/components/",
+    'href="../../assets/' => 'href="/assets/',
+    "href='../../assets/" => "href='/assets/",
+    'src="../../assets/' => 'src="/assets/',
+    "src='../../assets/" => "src='/assets/",
+    'srcset="../../assets/' => 'srcset="/assets/',
+    "srcset='../../assets/" => "srcset='/assets/",
+];
+foreach ($pairs as $from => $to) {
+    $html = str_replace($from, $to, $html);
 }
 
 echo $html;
