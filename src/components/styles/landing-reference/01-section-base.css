@@ -1,0 +1,197 @@
+
+  /* ---------- Section base ---------- */
+  html, body {
+    overflow-x: clip;
+  }
+  .sec { position: relative; width: 100%; overflow: hidden; margin: 0; }
+  .sec-inner { max-width: var(--maxw); margin: 0 auto; padding: 112px 32px; position: relative; z-index: 2; }
+  .sec.light { color: var(--ink-dark-0); }
+
+  /* Ana bölümler: en az bir viewport yüksekliği; içerik taşarsa sec-inner içinde kayar */
+  .sec-journey,
+  .sec-classroom.light,
+  .sec-students.light,
+  .sec-panel.light {
+    min-height: var(--viewport-fill);
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+  /* Paketler: içeriğe göre yükseklik — tam ekran zorlaması yok */
+  .sec-pricing {
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+  .sec-pricing > .sec-inner,
+  .sec-journey > .sec-inner,
+  .sec-classroom.light > .sec-inner,
+  .sec-students.light > .sec-inner,
+  .sec-panel.light > .sec-inner {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: safe center;
+    min-height: 0;
+    width: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-top: clamp(28px, 5vh, 88px);
+    padding-bottom: clamp(24px, 4vh, 72px);
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  .sec-pricing > .sec-inner {
+    overflow-y: visible;
+    justify-content: flex-start;
+  }
+
+  /* İlk bakışta tam hero: üste yaslama + görünür alan yüksekliği */
+  .hero-pricing-bg .sec-hero {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100svh - var(--site-header-h));
+    box-sizing: border-box;
+    overflow-x: visible;
+    overflow-y: visible;
+  }
+  .hero-pricing-bg .sec-hero .sec-inner {
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: var(--maxw-hero);
+    margin-top: 0;
+    padding-top: clamp(10px, 1.2vw, 18px);
+    padding-left: clamp(10px, 2vw, 28px);
+    padding-right: clamp(16px, 3.5vw, 40px);
+    padding-bottom: clamp(14px, 2vw, 28px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    box-sizing: border-box;
+  }
+  .hero-pricing-bg .sec-hero .hero-slider {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .hero-pricing-bg .sec-pricing > .sec-inner,
+  .hero-pricing-bg .sec-journey > .sec-inner {
+    padding-top: clamp(28px, 5vh, 72px);
+    padding-bottom: clamp(24px, 4vh, 56px);
+  }
+
+  .eyebrow {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--p-purple); margin: 0 0 16px;
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .eyebrow::before {
+    content: ""; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--p-purple); box-shadow: 0 0 12px var(--p-purple);
+  }
+  .sec.light .eyebrow { color: #5b3fd9; }
+  .sec.light .eyebrow::before { background: #5b3fd9; box-shadow: 0 0 8px rgba(91,63,217,0.5); }
+
+  h1.title { font-size: 72px; line-height: 1.02; margin: 0 0 24px; font-weight: 800; letter-spacing: -0.025em; text-wrap: balance; }
+  h2.title { font-size: 38px; line-height: 1.1; margin: 0 0 20px; font-weight: 800; letter-spacing: -0.015em; text-wrap: balance; max-width: 800px; }
+  .sec.light h2.title { color: var(--ink-dark-0); }
+
+  /* Bölüm başlıkları: ardışık bölümlerde renk farkı (kaydırma geri bildirimi), palet ile uyumlu */
+  .sec-pricing > .sec-inner > h2.title {
+    color: #3e3a8e;
+    letter-spacing: -0.03em;
+    position: relative;
+    padding-bottom: 14px;
+  }
+  .sec-pricing > .sec-inner > h2.title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: min(120px, 28vw);
+    height: 4px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--p-purple), var(--p-pink));
+  }
+  @supports ((-webkit-background-clip: text) or (background-clip: text)) {
+    .sec-pricing > .sec-inner > h2.title {
+      background: var(--section-title-grad-pricing);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .sec-pricing > .sec-inner > h2.title::after {
+      background: linear-gradient(90deg, #e6087b, #ffd58a);
+    }
+  }
+
+  .sec-journey > .sec-inner > h2.title {
+    color: #f4ecff;
+    text-shadow: 0 2px 26px rgba(0, 0, 0, 0.42);
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    padding-bottom: 12px;
+  }
+  .sec-journey > .sec-inner > h2.title::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: min(140px, 36vw);
+    height: 4px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #c8b8ff, #ffd58a);
+    box-shadow: 0 0 18px rgba(255, 213, 138, 0.35);
+  }
+  @supports ((-webkit-background-clip: text) or (background-clip: text)) {
+    .sec-journey > .sec-inner > h2.title {
+      background: var(--section-title-grad-journey);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: none;
+      filter: drop-shadow(0 3px 20px rgba(0, 0, 0, 0.4));
+    }
+  }
+
+  .sec-classroom.light > .sec-inner > h2.title { color: #5b3fd9; }
+  @supports ((-webkit-background-clip: text) or (background-clip: text)) {
+    .sec-classroom.light > .sec-inner > h2.title {
+      background: var(--section-title-grad-classroom);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+  }
+
+  .sec-students.light > .sec-inner > h2.title { color: #e6087b; }
+  @supports ((-webkit-background-clip: text) or (background-clip: text)) {
+    .sec-students.light > .sec-inner > h2.title {
+      background: var(--section-title-grad-students);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+  }
+
+  .sec-panel.light > .sec-inner > h2.title { color: #1a7ba8; }
+  @supports ((-webkit-background-clip: text) or (background-clip: text)) {
+    .sec-panel.light > .sec-inner > h2.title {
+      background: var(--section-title-grad-panel);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+  }
+  h3.title { font-size: 22px; line-height: 1.25; margin: 0 0 8px; font-weight: 700; letter-spacing: -0.005em; }
+
+  .lead { font-size: 19px; color: var(--ink-1); max-width: 620px; line-height: 1.58; font-weight: 500; }
+  .sec.light .lead { color: var(--ink-dark-0); font-weight: 500; }

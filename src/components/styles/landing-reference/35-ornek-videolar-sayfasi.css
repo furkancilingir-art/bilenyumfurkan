@@ -1,0 +1,16 @@
+
+  /* ---------- Örnek videolar sayfası ---------- */
+  .title--ornek-videos-page {
+    font-size: clamp(26px, 3.2vw, 38px);
+    letter-spacing: -0.03em;
+    margin: 0 0 12px;
+    color: var(--ink-dark-0);
+  }
+  .lead--ornek-videos {
+    margin: 0 auto;
+    max-width: 46ch;
+    color: var(--ink-dark-1);
+    font-size: clamp(14px, 1.2vw, 16px);
+    line-height: 1.55;
+    font-weight: 500;
+  }

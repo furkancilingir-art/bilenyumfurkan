@@ -1,0 +1,11 @@
+﻿/* Shared component layer on top of Bootstrap */
+:root {
+  --bln-primary: #7c5cff;
+  --bln-accent: #4ad6ff;
+}
+
+.component-card {
+  border: 1px solid rgba(20,22,50,0.1);
+  border-radius: 16px;
+  background: #fff;
+}

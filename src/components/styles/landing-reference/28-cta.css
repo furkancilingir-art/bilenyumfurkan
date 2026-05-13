@@ -1,0 +1,26 @@
+
+  /* ---------- CTA ---------- */
+  .cta-card {
+    margin-top: 32px;
+    padding: 80px 56px;
+    border-radius: var(--r-xl);
+    border: 1px solid rgba(124,92,255,0.4);
+    background:
+      radial-gradient(700px 350px at 50% 0%, rgba(255,181,71,0.18), transparent 60%),
+      radial-gradient(800px 400px at 50% 100%, rgba(124,92,255,0.45), transparent 60%),
+      rgba(15,19,48,0.6);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-card::before {
+    content: ""; position: absolute; left: 50%; bottom: -40%;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(124,92,255,0.4), transparent 65%);
+    transform: translateX(-50%);
+    pointer-events: none;
+  }
+  .cta-card .title, .cta-card .lead { position: relative; }
+  .cta-trust { margin-top: 24px; color: var(--ink-2); font-size: 13px; display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+  .cta-trust span { display: inline-flex; gap: 6px; align-items: center; }
+  .cta-trust span::before { content: "•"; color: var(--p-green); font-weight: 700; }

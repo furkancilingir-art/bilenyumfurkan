@@ -1,0 +1,680 @@
+/**
+ * Paket detay � landing paket kart temalar?yla uyumlu renkler.
+ * body.paket-detail-theme--{tema} paket-detay.js ile atan?r.
+ */
+
+/* ---------- Ortak: g�r�n�r kenarl?klar / g�lgeler ---------- */
+body[class*="paket-detail-theme--"] .feature-card {
+  border-color: rgba(20, 22, 50, 0.1);
+}
+body[class*="paket-detail-theme--"] .feature-card:hover {
+  transform: translateY(-3px);
+}
+body[class*="paket-detail-theme--"] .curriculum-week:hover {
+  transform: translateY(-1px);
+}
+body[class*="paket-detail-theme--"] .purchase-stat:hover {
+  transform: translateY(-2px);
+}
+
+/* ---------- T�m Dersler ---------- */
+body.paket-detail-theme--tum-dersler {
+  --p-purple: #5b3fd9;
+  --p-pink: #e6087b;
+  --p-aqua: #7dd3fc;
+  --p-green: #7c5cff;
+  --p-sun: #e6087b;
+  --pkg-sd-bg: linear-gradient(180deg, #f2eeff 0%, #e8e0fb 100%);
+  --pkg-wave-a: rgba(124, 92, 255, 0.14);
+  --pkg-wave-b: rgba(230, 8, 123, 0.13);
+  --pkg-wave-merge-curriculum: #ffffff;
+  --pkg-wave-merge-purchase: #fafaff;
+  --pkg-geo-circle: rgba(124, 92, 255, 0.42);
+  --pkg-geo-line: rgba(124, 92, 255, 0.55);
+  --pkg-geo-tri: rgba(230, 8, 123, 0.58);
+  --pkg-reviews-bg: linear-gradient(180deg, #fafaff 0%, #f3ecff 100%);
+}
+body.paket-detail-theme--tum-dersler .topbar {
+  background: linear-gradient(90deg, #3e3a8e, #e6087b);
+}
+body.paket-detail-theme--tum-dersler .pkg-image-wrap {
+  background: linear-gradient(135deg, rgba(124, 92, 255, 0.16), rgba(230, 8, 123, 0.08));
+  border-color: rgba(124, 92, 255, 0.28);
+  box-shadow: 0 30px 80px -30px rgba(124, 92, 255, 0.38);
+}
+body.paket-detail-theme--tum-dersler .geo-dot-light.d1 {
+  background: #7c5cff;
+  box-shadow: 0 0 14px rgba(124, 92, 255, 0.55);
+}
+body.paket-detail-theme--tum-dersler .feature-card:hover {
+  border-color: rgba(124, 92, 255, 0.38);
+  box-shadow: 0 18px 38px -18px rgba(124, 92, 255, 0.35);
+}
+body.paket-detail-theme--tum-dersler .feature-icon {
+  background: linear-gradient(160deg, #ffffff 0%, #f0eaff 70%, #e4d8ff 100%);
+  border-color: rgba(124, 92, 255, 0.22);
+  box-shadow:
+    inset 0 2px 0 rgba(255, 255, 255, 0.95),
+    0 8px 20px -10px rgba(124, 92, 255, 0.35);
+}
+body.paket-detail-theme--tum-dersler .curriculum-week:hover {
+  border-color: rgba(124, 92, 255, 0.42);
+  box-shadow: 0 10px 28px -18px rgba(124, 92, 255, 0.22);
+}
+body.paket-detail-theme--tum-dersler .curriculum-week-num {
+  background: rgba(124, 92, 255, 0.14);
+}
+body.paket-detail-theme--tum-dersler .purchase-stat:hover {
+  border-color: rgba(124, 92, 255, 0.42);
+  box-shadow: 0 12px 28px -16px rgba(124, 92, 255, 0.28);
+}
+body.paket-detail-theme--tum-dersler .purchase-box {
+  border-color: rgba(124, 92, 255, 0.14);
+  box-shadow:
+    0 22px 50px -20px rgba(124, 92, 255, 0.22),
+    0 4px 14px -8px rgba(20, 22, 50, 0.1);
+}
+body.paket-detail-theme--tum-dersler .sticky-bar {
+  border-top-color: rgba(124, 92, 255, 0.28);
+  box-shadow: 0 -12px 44px -12px rgba(124, 92, 255, 0.18);
+}
+body.paket-detail-theme--tum-dersler .sticky-bar-thumb {
+  background: linear-gradient(145deg, #8e6fff, #5b3fd9);
+  box-shadow: 0 10px 24px -10px rgba(124, 92, 255, 0.5);
+}
+body.paket-detail-theme--tum-dersler .pkg-cta .btn-primary {
+  background: linear-gradient(135deg, #5b3fd9 0%, #e6087b 52%, #7c5cff 100%);
+  border-color: rgba(230, 200, 255, 0.35);
+  color: #fff;
+}
+body.paket-detail-theme--tum-dersler .pkg-cta .btn-primary:hover {
+  filter: brightness(1.06);
+  box-shadow: 0 18px 36px -14px rgba(230, 8, 123, 0.42);
+}
+body.paket-detail-theme--tum-dersler .pkg-cta .btn-ghost {
+  background: #ffffff;
+  color: #4c3aa8;
+  border-color: rgba(91, 63, 217, 0.42);
+}
+body.paket-detail-theme--tum-dersler .pkg-cta .btn-ghost:hover {
+  background: #faf8ff;
+  border-color: #7c5cff;
+  color: #352574;
+  box-shadow: 0 14px 32px -18px rgba(124, 92, 255, 0.35);
+}
+body.paket-detail-theme--tum-dersler .sec-purchase .btn-primary {
+  background: linear-gradient(135deg, #5b3fd9 0%, #e6087b 52%);
+  color: #fff;
+}
+body.paket-detail-theme--tum-dersler .sec-purchase .btn-primary:hover {
+  filter: brightness(1.07);
+}
+body.paket-detail-theme--tum-dersler .sec-purchase .btn-ghost {
+  background: #fff;
+  color: #4c3aa8;
+  border-color: rgba(91, 63, 217, 0.35);
+}
+body.paket-detail-theme--tum-dersler .sec-purchase .btn-ghost:hover {
+  background: #faf8ff;
+  border-color: #7c5cff;
+  color: #352574;
+}
+body.paket-detail-theme--tum-dersler .sticky-bar-actions .btn-primary {
+  background: linear-gradient(135deg, #5b3fd9 0%, #e6087b 55%);
+  color: #fff;
+}
+body.paket-detail-theme--tum-dersler .sticky-bar-actions .btn-primary:hover {
+  filter: brightness(1.06);
+}
+body.paket-detail-theme--tum-dersler .sticky-bar-actions .btn-ghost {
+  background: rgba(255, 255, 255, 0.92);
+  color: #4c3aa8;
+  border-color: rgba(91, 63, 217, 0.38);
+}
+body.paket-detail-theme--tum-dersler .sticky-bar-actions .btn-ghost:hover {
+  background: #fff;
+  border-color: #7c5cff;
+  color: #352574;
+}
+body.paket-detail-theme--tum-dersler .video-play-big:hover {
+  color: #5b3fd9;
+}
+body.paket-detail-theme--tum-dersler .sec-reviews {
+  background: var(--pkg-reviews-bg);
+}
+
+/* ---------- H?zland?rma ---------- */
+body.paket-detail-theme--hizlandirma {
+  --p-purple: #ea580c;
+  --p-pink: #ff8c42;
+  --p-aqua: #fdba74;
+  --p-green: #ff9f1c;
+  --p-sun: #ffb347;
+  --pkg-sd-bg: linear-gradient(180deg, #fff5eb 0%, #ffe8d4 100%);
+  --pkg-wave-a: rgba(255, 140, 66, 0.22);
+  --pkg-wave-b: rgba(234, 88, 12, 0.18);
+  --pkg-wave-merge-curriculum: #ffffff;
+  --pkg-wave-merge-purchase: #fffbf7;
+  --pkg-geo-circle: rgba(234, 88, 12, 0.45);
+  --pkg-geo-line: rgba(251, 146, 60, 0.65);
+  --pkg-geo-tri: rgba(249, 115, 22, 0.58);
+  --pkg-reviews-bg: linear-gradient(180deg, #fffbf7 0%, #ffedd5 100%);
+}
+body.paket-detail-theme--hizlandirma .topbar {
+  background: linear-gradient(90deg, #431407, #ea580c);
+}
+body.paket-detail-theme--hizlandirma .pkg-image-wrap {
+  background: linear-gradient(135deg, rgba(255, 140, 66, 0.22), rgba(234, 88, 12, 0.1));
+  border-color: rgba(255, 181, 71, 0.35);
+  box-shadow: 0 30px 80px -30px rgba(234, 88, 12, 0.35);
+}
+body.paket-detail-theme--hizlandirma .geo-dot-light.d1 {
+  background: #ff8c42;
+  box-shadow: 0 0 14px rgba(255, 140, 66, 0.55);
+}
+body.paket-detail-theme--hizlandirma .feature-card:hover {
+  border-color: rgba(249, 115, 22, 0.42);
+  box-shadow: 0 18px 38px -18px rgba(234, 88, 12, 0.32);
+}
+body.paket-detail-theme--hizlandirma .feature-icon {
+  background: linear-gradient(160deg, #ffffff 0%, #fff4e6 70%, #ffd9b8 100%);
+  border-color: rgba(251, 146, 60, 0.38);
+  box-shadow: 0 8px 22px -10px rgba(234, 88, 12, 0.35);
+}
+body.paket-detail-theme--hizlandirma .curriculum-week:hover {
+  border-color: rgba(249, 115, 22, 0.45);
+}
+body.paket-detail-theme--hizlandirma .curriculum-week-num {
+  background: rgba(251, 146, 60, 0.18);
+}
+body.paket-detail-theme--hizlandirma .purchase-stat:hover {
+  border-color: rgba(249, 115, 22, 0.42);
+}
+body.paket-detail-theme--hizlandirma .purchase-box {
+  border-color: rgba(251, 146, 60, 0.28);
+  box-shadow: 0 22px 50px -22px rgba(234, 88, 12, 0.22);
+}
+body.paket-detail-theme--hizlandirma .sticky-bar {
+  border-top-color: rgba(251, 146, 60, 0.42);
+}
+body.paket-detail-theme--hizlandirma .sticky-bar-thumb {
+  background: linear-gradient(145deg, #ffb347, #ea580c);
+  box-shadow: 0 10px 26px -10px rgba(234, 88, 12, 0.48);
+}
+body.paket-detail-theme--hizlandirma .nav-cta .btn-primary,
+body.paket-detail-theme--hizlandirma .btn-primary {
+  background: linear-gradient(135deg, #ffb347 0%, #ff8c42 38%, #ea580c 100%);
+  border-color: rgba(255, 213, 160, 0.5);
+  color: #1a0f06;
+}
+body.paket-detail-theme--hizlandirma .nav-cta .btn-primary:hover,
+body.paket-detail-theme--hizlandirma .btn-primary:hover {
+  filter: brightness(1.07);
+  box-shadow: 0 16px 34px -14px rgba(234, 88, 12, 0.45);
+  color: #1a0f06;
+}
+body.paket-detail-theme--hizlandirma .nav-cta .btn-ghost:hover {
+  background: #fff7ed;
+  border-color: #ea580c;
+  color: #9a3412;
+}
+body.paket-detail-theme--hizlandirma .pkg-cta .btn-primary {
+  background: linear-gradient(135deg, #ffb347 0%, #ea580c 100%);
+  color: #1a0f06;
+  border-color: rgba(255, 213, 160, 0.5);
+}
+body.paket-detail-theme--hizlandirma .pkg-cta .btn-primary:hover {
+  filter: brightness(1.06);
+  box-shadow: 0 18px 38px -16px rgba(234, 88, 12, 0.42);
+}
+body.paket-detail-theme--hizlandirma .pkg-cta .btn-ghost {
+  background: #ffffff;
+  color: #9a3412;
+  border-color: rgba(234, 88, 12, 0.45);
+}
+body.paket-detail-theme--hizlandirma .pkg-cta .btn-ghost:hover {
+  background: #fff7ed;
+  border-color: #c2410c;
+  color: #7c2d12;
+}
+body.paket-detail-theme--hizlandirma .sec-purchase .btn-primary {
+  background: linear-gradient(135deg, #ffb347 0%, #ea580c 100%);
+  color: #1a0f06;
+}
+body.paket-detail-theme--hizlandirma .sec-purchase .btn-primary:hover {
+  filter: brightness(1.07);
+}
+body.paket-detail-theme--hizlandirma .sec-purchase .btn-ghost {
+  background: #fff;
+  color: #9a3412;
+  border-color: rgba(234, 88, 12, 0.4);
+}
+body.paket-detail-theme--hizlandirma .sec-purchase .btn-ghost:hover {
+  background: #fff7ed;
+  border-color: #ea580c;
+}
+body.paket-detail-theme--hizlandirma .sticky-bar-actions .btn-primary {
+  background: linear-gradient(135deg, #ffb347 0%, #ea580c 100%);
+  color: #1a0f06;
+}
+body.paket-detail-theme--hizlandirma .sticky-bar-actions .btn-primary:hover {
+  filter: brightness(1.06);
+}
+body.paket-detail-theme--hizlandirma .sticky-bar-actions .btn-ghost {
+  background: rgba(255, 255, 255, 0.95);
+  color: #9a3412;
+  border-color: rgba(234, 88, 12, 0.42);
+}
+body.paket-detail-theme--hizlandirma .sticky-bar-actions .btn-ghost:hover {
+  background: #fff;
+  border-color: #ea580c;
+}
+body.paket-detail-theme--hizlandirma .pkg-price-installment {
+  color: #c2410c;
+}
+body.paket-detail-theme--hizlandirma .video-play-big:hover {
+  color: #ea580c;
+}
+body.paket-detail-theme--hizlandirma .sec-reviews {
+  background: var(--pkg-reviews-bg);
+}
+
+/* ---------- Say?sal ---------- */
+body.paket-detail-theme--sayisal {
+  --p-purple: #0284c7;
+  --p-pink: #0ea5e9;
+  --p-aqua: #38bdf8;
+  --p-green: #0369a1;
+  --p-sun: #38bdf8;
+  --pkg-sd-bg: linear-gradient(180deg, #eef8ff 0%, #dceefc 100%);
+  --pkg-wave-a: rgba(56, 189, 248, 0.18);
+  --pkg-wave-b: rgba(3, 105, 161, 0.15);
+  --pkg-wave-merge-curriculum: #ffffff;
+  --pkg-wave-merge-purchase: #f6fbff;
+  --pkg-geo-circle: rgba(14, 165, 233, 0.42);
+  --pkg-geo-line: rgba(56, 189, 248, 0.62);
+  --pkg-geo-tri: rgba(14, 165, 233, 0.58);
+  --pkg-reviews-bg: linear-gradient(180deg, #f6fbff 0%, #e8f6ff 100%);
+}
+body.paket-detail-theme--sayisal .topbar {
+  background: linear-gradient(90deg, #0c4a6e, #0ea5e9);
+}
+body.paket-detail-theme--sayisal .pkg-image-wrap {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(3, 105, 161, 0.1));
+  border-color: rgba(56, 189, 248, 0.35);
+  box-shadow: 0 30px 80px -30px rgba(14, 165, 233, 0.35);
+}
+body.paket-detail-theme--sayisal .geo-dot-light.d1 {
+  background: #38bdf8;
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.55);
+}
+body.paket-detail-theme--sayisal .feature-card:hover {
+  border-color: rgba(56, 189, 248, 0.42);
+  box-shadow: 0 18px 38px -18px rgba(14, 165, 233, 0.28);
+}
+body.paket-detail-theme--sayisal .feature-icon {
+  background: linear-gradient(160deg, #ffffff 0%, #e0f2fe 75%, #bae6fd 100%);
+  border-color: rgba(56, 189, 248, 0.35);
+  box-shadow: 0 8px 22px -10px rgba(14, 165, 233, 0.35);
+}
+body.paket-detail-theme--sayisal .curriculum-week:hover {
+  border-color: rgba(56, 189, 248, 0.45);
+}
+body.paket-detail-theme--sayisal .curriculum-week-num {
+  background: rgba(56, 189, 248, 0.15);
+}
+body.paket-detail-theme--sayisal .purchase-stat:hover {
+  border-color: rgba(56, 189, 248, 0.42);
+}
+body.paket-detail-theme--sayisal .purchase-box {
+  border-color: rgba(56, 189, 248, 0.22);
+  box-shadow: 0 22px 50px -22px rgba(14, 165, 233, 0.2);
+}
+body.paket-detail-theme--sayisal .sticky-bar {
+  border-top-color: rgba(56, 189, 248, 0.38);
+}
+body.paket-detail-theme--sayisal .sticky-bar-thumb {
+  background: linear-gradient(145deg, #38bdf8, #0284c7);
+  box-shadow: 0 10px 26px -10px rgba(14, 165, 233, 0.45);
+}
+body.paket-detail-theme--sayisal .nav-cta .btn-primary,
+body.paket-detail-theme--sayisal .btn-primary {
+  background: linear-gradient(135deg, #0ea5e9 0%, #0369a1 52%, #1e3a8a 100%);
+  border-color: rgba(125, 211, 252, 0.45);
+  color: #fff;
+}
+body.paket-detail-theme--sayisal .nav-cta .btn-primary:hover,
+body.paket-detail-theme--sayisal .btn-primary:hover {
+  filter: brightness(1.07);
+  box-shadow: 0 16px 34px -14px rgba(14, 165, 233, 0.45);
+}
+body.paket-detail-theme--sayisal .nav-cta .btn-ghost:hover {
+  background: #e0f2fe;
+  border-color: #0284c7;
+  color: #0c4a6e;
+}
+body.paket-detail-theme--sayisal .pkg-cta .btn-primary {
+  background: linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%);
+  color: #fff;
+}
+body.paket-detail-theme--sayisal .pkg-cta .btn-ghost {
+  background: #ffffff;
+  color: #075985;
+  border-color: rgba(2, 132, 199, 0.45);
+}
+body.paket-detail-theme--sayisal .pkg-cta .btn-ghost:hover {
+  background: #f0f9ff;
+  border-color: #0284c7;
+  color: #0c4a6e;
+}
+body.paket-detail-theme--sayisal .sec-purchase .btn-primary {
+  background: linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%);
+  color: #fff;
+}
+body.paket-detail-theme--sayisal .sec-purchase .btn-ghost {
+  background: #fff;
+  color: #075985;
+  border-color: rgba(2, 132, 199, 0.4);
+}
+body.paket-detail-theme--sayisal .sec-purchase .btn-ghost:hover {
+  background: #f0f9ff;
+  border-color: #0284c7;
+}
+body.paket-detail-theme--sayisal .sticky-bar-actions .btn-primary {
+  background: linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%);
+  color: #fff;
+}
+body.paket-detail-theme--sayisal .sticky-bar-actions .btn-ghost {
+  background: rgba(255, 255, 255, 0.95);
+  color: #075985;
+  border-color: rgba(2, 132, 199, 0.42);
+}
+body.paket-detail-theme--sayisal .sticky-bar-actions .btn-ghost:hover {
+  background: #fff;
+  border-color: #0284c7;
+}
+body.paket-detail-theme--sayisal .pkg-price-installment {
+  color: #0369a1;
+}
+body.paket-detail-theme--sayisal .video-play-big:hover {
+  color: #0284c7;
+}
+body.paket-detail-theme--sayisal .sec-reviews {
+  background: var(--pkg-reviews-bg);
+}
+
+/* ---------- S�zel ---------- */
+body.paket-detail-theme--sozel {
+  --p-purple: #e11d48;
+  --p-pink: #fb7185;
+  --p-aqua: #fda4af;
+  --p-green: #f43f5e;
+  --p-sun: #fb7185;
+  --pkg-sd-bg: linear-gradient(180deg, #fff5f7 0%, #ffe4e9 100%);
+  --pkg-wave-a: rgba(251, 113, 133, 0.18);
+  --pkg-wave-b: rgba(225, 29, 72, 0.14);
+  --pkg-wave-merge-curriculum: #ffffff;
+  --pkg-wave-merge-purchase: #fffafb;
+  --pkg-geo-circle: rgba(251, 113, 133, 0.42);
+  --pkg-geo-line: rgba(251, 113, 133, 0.58);
+  --pkg-geo-tri: rgba(225, 29, 72, 0.52);
+  --pkg-reviews-bg: linear-gradient(180deg, #fffafb 0%, #ffeef2 100%);
+}
+body.paket-detail-theme--sozel .topbar {
+  background: linear-gradient(90deg, #881337, #fb7185);
+}
+body.paket-detail-theme--sozel .pkg-image-wrap {
+  background: linear-gradient(135deg, rgba(251, 113, 133, 0.18), rgba(225, 29, 72, 0.1));
+  border-color: rgba(251, 113, 133, 0.38);
+  box-shadow: 0 30px 80px -30px rgba(225, 29, 72, 0.32);
+}
+body.paket-detail-theme--sozel .geo-dot-light.d1 {
+  background: #fb7185;
+  box-shadow: 0 0 14px rgba(251, 113, 133, 0.55);
+}
+body.paket-detail-theme--sozel .feature-card:hover {
+  border-color: rgba(251, 113, 133, 0.42);
+  box-shadow: 0 18px 38px -18px rgba(225, 29, 72, 0.26);
+}
+body.paket-detail-theme--sozel .feature-icon {
+  background: linear-gradient(160deg, #ffffff 0%, #ffe4e9 75%, #fecdd3 100%);
+  border-color: rgba(251, 113, 133, 0.35);
+  box-shadow: 0 8px 22px -10px rgba(225, 29, 72, 0.3);
+}
+body.paket-detail-theme--sozel .curriculum-week:hover {
+  border-color: rgba(251, 113, 133, 0.45);
+}
+body.paket-detail-theme--sozel .curriculum-week-num {
+  background: rgba(251, 113, 133, 0.14);
+}
+body.paket-detail-theme--sozel .purchase-stat:hover {
+  border-color: rgba(251, 113, 133, 0.42);
+}
+body.paket-detail-theme--sozel .purchase-box {
+  border-color: rgba(251, 113, 133, 0.22);
+}
+body.paket-detail-theme--sozel .sticky-bar {
+  border-top-color: rgba(251, 113, 133, 0.38);
+}
+body.paket-detail-theme--sozel .sticky-bar-thumb {
+  background: linear-gradient(145deg, #fb7185, #e11d48);
+  box-shadow: 0 10px 26px -10px rgba(225, 29, 72, 0.42);
+}
+body.paket-detail-theme--sozel .nav-cta .btn-primary,
+body.paket-detail-theme--sozel .btn-primary {
+  background: linear-gradient(135deg, #fb7185 0%, #e11d48 48%, #9f1239 100%);
+  border-color: rgba(254, 202, 202, 0.42);
+  color: #fff;
+}
+body.paket-detail-theme--sozel .nav-cta .btn-primary:hover,
+body.paket-detail-theme--sozel .btn-primary:hover {
+  filter: brightness(1.06);
+  box-shadow: 0 16px 34px -14px rgba(225, 29, 72, 0.4);
+}
+body.paket-detail-theme--sozel .nav-cta .btn-ghost:hover {
+  background: #fff1f2;
+  border-color: #e11d48;
+  color: #881337;
+}
+body.paket-detail-theme--sozel .pkg-cta .btn-primary {
+  background: linear-gradient(135deg, #fb7185 0%, #e11d48 100%);
+  color: #fff;
+}
+body.paket-detail-theme--sozel .pkg-cta .btn-ghost {
+  background: #ffffff;
+  color: #9f1239;
+  border-color: rgba(225, 29, 72, 0.38);
+}
+body.paket-detail-theme--sozel .pkg-cta .btn-ghost:hover {
+  background: #fff1f2;
+  border-color: #be123c;
+  color: #881337;
+}
+body.paket-detail-theme--sozel .sec-purchase .btn-primary {
+  background: linear-gradient(135deg, #fb7185 0%, #e11d48 100%);
+  color: #fff;
+}
+body.paket-detail-theme--sozel .sec-purchase .btn-ghost {
+  background: #fff;
+  color: #9f1239;
+  border-color: rgba(225, 29, 72, 0.38);
+}
+body.paket-detail-theme--sozel .sec-purchase .btn-ghost:hover {
+  background: #fff1f2;
+  border-color: #e11d48;
+}
+body.paket-detail-theme--sozel .sticky-bar-actions .btn-primary {
+  background: linear-gradient(135deg, #fb7185 0%, #e11d48 100%);
+  color: #fff;
+}
+body.paket-detail-theme--sozel .sticky-bar-actions .btn-ghost {
+  background: rgba(255, 255, 255, 0.95);
+  color: #9f1239;
+  border-color: rgba(225, 29, 72, 0.38);
+}
+body.paket-detail-theme--sozel .sticky-bar-actions .btn-ghost:hover {
+  background: #fff;
+  border-color: #e11d48;
+}
+body.paket-detail-theme--sozel .pkg-price-installment {
+  color: #be123c;
+}
+body.paket-detail-theme--sozel .video-play-big:hover {
+  color: #e11d48;
+}
+body.paket-detail-theme--sozel .sec-reviews {
+  background: var(--pkg-reviews-bg);
+}
+
+/* ---------- Birebir ---------- */
+body.paket-detail-theme--birebir {
+  --p-purple: #7c3aed;
+  --p-pink: #14b8a6;
+  --p-aqua: #2dd4bf;
+  --p-green: #8b5cf6;
+  --p-sun: #a78bfa;
+  --pkg-sd-bg: linear-gradient(180deg, #f5f3ff 0%, #ede9fe 100%);
+  --pkg-wave-a: rgba(139, 92, 246, 0.16);
+  --pkg-wave-b: rgba(20, 184, 166, 0.14);
+  --pkg-wave-merge-curriculum: #ffffff;
+  --pkg-wave-merge-purchase: #fafaff;
+  --pkg-geo-circle: rgba(139, 92, 246, 0.4);
+  --pkg-geo-line: rgba(167, 139, 250, 0.58);
+  --pkg-geo-tri: rgba(20, 184, 166, 0.52);
+  --pkg-reviews-bg: linear-gradient(180deg, #fafaff 0%, #f3f0ff 100%);
+}
+body.paket-detail-theme--birebir .topbar {
+  background: linear-gradient(90deg, #4c1d95, #0d9488);
+}
+body.paket-detail-theme--birebir .pkg-image-wrap {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(20, 184, 166, 0.12));
+  border-color: rgba(167, 139, 250, 0.38);
+  box-shadow: 0 30px 80px -30px rgba(124, 58, 237, 0.35);
+}
+body.paket-detail-theme--birebir .geo-dot-light.d1 {
+  background: #a78bfa;
+  box-shadow: 0 0 14px rgba(167, 139, 250, 0.55);
+}
+body.paket-detail-theme--birebir .feature-card:hover {
+  border-color: rgba(167, 139, 250, 0.42);
+  box-shadow: 0 18px 38px -18px rgba(124, 58, 237, 0.26);
+}
+body.paket-detail-theme--birebir .feature-icon {
+  background: linear-gradient(160deg, #ffffff 0%, #ede9fe 70%, #ddd6fe 100%);
+  border-color: rgba(167, 139, 250, 0.35);
+  box-shadow: 0 8px 22px -10px rgba(124, 58, 237, 0.32);
+}
+body.paket-detail-theme--birebir .curriculum-week:hover {
+  border-color: rgba(167, 139, 250, 0.42);
+}
+body.paket-detail-theme--birebir .curriculum-week-num {
+  background: rgba(167, 139, 250, 0.14);
+}
+body.paket-detail-theme--birebir .purchase-stat:hover {
+  border-color: rgba(167, 139, 250, 0.38);
+}
+body.paket-detail-theme--birebir .purchase-box {
+  border-color: rgba(167, 139, 250, 0.22);
+  box-shadow: 0 22px 50px -22px rgba(124, 58, 237, 0.18);
+}
+body.paket-detail-theme--birebir .sticky-bar {
+  border-top-color: rgba(167, 139, 250, 0.35);
+}
+body.paket-detail-theme--birebir .sticky-bar-thumb {
+  background: linear-gradient(145deg, #a78bfa, #7c3aed);
+  box-shadow: 0 10px 26px -10px rgba(124, 58, 237, 0.45);
+}
+body.paket-detail-theme--birebir .nav-cta .btn-primary,
+body.paket-detail-theme--birebir .btn-primary {
+  background: linear-gradient(135deg, #7c3aed 0%, #0d9488 88%);
+  border-color: rgba(167, 139, 250, 0.48);
+  color: #fff;
+}
+body.paket-detail-theme--birebir .nav-cta .btn-primary:hover,
+body.paket-detail-theme--birebir .btn-primary:hover {
+  filter: brightness(1.06);
+  box-shadow: 0 16px 34px -14px rgba(124, 58, 237, 0.4);
+}
+body.paket-detail-theme--birebir .nav-cta .btn-ghost:hover {
+  background: #f5f3ff;
+  border-color: #7c3aed;
+  color: #4c1d95;
+}
+body.paket-detail-theme--birebir .pkg-cta .btn-primary {
+  background: linear-gradient(135deg, #7c3aed 0%, #0d9488 100%);
+  color: #fff;
+}
+body.paket-detail-theme--birebir .pkg-cta .btn-ghost {
+  background: #ffffff;
+  color: #5b21b6;
+  border-color: rgba(124, 58, 237, 0.38);
+}
+body.paket-detail-theme--birebir .pkg-cta .btn-ghost:hover {
+  background: #f5f3ff;
+  border-color: #7c3aed;
+  color: #4c1d95;
+}
+body.paket-detail-theme--birebir .sec-purchase .btn-primary {
+  background: linear-gradient(135deg, #7c3aed 0%, #0d9488 100%);
+  color: #fff;
+}
+body.paket-detail-theme--birebir .sec-purchase .btn-ghost {
+  background: #fff;
+  color: #5b21b6;
+  border-color: rgba(124, 58, 237, 0.35);
+}
+body.paket-detail-theme--birebir .sec-purchase .btn-ghost:hover {
+  background: #f5f3ff;
+  border-color: #7c3aed;
+}
+body.paket-detail-theme--birebir .sticky-bar-actions .btn-primary {
+  background: linear-gradient(135deg, #7c3aed 0%, #0d9488 100%);
+  color: #fff;
+}
+body.paket-detail-theme--birebir .sticky-bar-actions .btn-ghost {
+  background: rgba(255, 255, 255, 0.95);
+  color: #5b21b6;
+  border-color: rgba(124, 58, 237, 0.38);
+}
+body.paket-detail-theme--birebir .sticky-bar-actions .btn-ghost:hover {
+  background: #fff;
+  border-color: #7c3aed;
+}
+body.paket-detail-theme--birebir .pkg-price-installment {
+  color: #6d28d9;
+}
+body.paket-detail-theme--birebir .video-play-big:hover {
+  color: #7c3aed;
+}
+body.paket-detail-theme--birebir .sec-reviews {
+  background: var(--pkg-reviews-bg);
+}
+
+/* ---------- Yorum kartlar? � hover kenarl??? (kontrastl?, okunakl?) ---------- */
+body.paket-detail-theme--tum-dersler .review-card:hover {
+  border-color: rgba(124, 92, 255, 0.28);
+  box-shadow: 0 14px 36px -22px rgba(124, 92, 255, 0.22);
+}
+body.paket-detail-theme--hizlandirma .review-card:hover {
+  border-color: rgba(249, 115, 22, 0.35);
+  box-shadow: 0 14px 36px -22px rgba(234, 88, 12, 0.2);
+}
+body.paket-detail-theme--sayisal .review-card:hover {
+  border-color: rgba(56, 189, 248, 0.38);
+  box-shadow: 0 14px 36px -22px rgba(14, 165, 233, 0.18);
+}
+body.paket-detail-theme--sozel .review-card:hover {
+  border-color: rgba(251, 113, 133, 0.38);
+  box-shadow: 0 14px 36px -22px rgba(225, 29, 72, 0.18);
+}
+body.paket-detail-theme--birebir .review-card:hover {
+  border-color: rgba(167, 139, 250, 0.35);
+  box-shadow: 0 14px 36px -22px rgba(124, 58, 237, 0.2);
+}
+
+body[class*="paket-detail-theme--"] .review-card {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+body[class*="paket-detail-theme--"] .review-card:hover {
+  transform: translateY(-2px);
+}

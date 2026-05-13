@@ -1,0 +1,360 @@
+
+  /* ---------- Nav sayfaları: ana sayfa hero ile aynı kozmik zemin (ölçek kompakt) ---------- */
+  .page-egitim-setleri,
+  .page-ornek-videolar,
+  .page-neden-biz,
+  .page-kadromuz,
+  .page-kadro-detay,
+  .page-iletisim,
+  .page-faq-sss,
+  .page-giris-kayit {
+    background: #ffffff;
+  }
+
+  .site-header + .nav-page-hero {
+    margin-top: 0;
+    padding-top: clamp(8px, 1.2vw, 16px);
+  }
+
+  .page-iletisim .iletisim-cosmos-band {
+    margin-top: clamp(-14px, -1.4vh, -6px);
+  }
+
+  /* Nav sayfaları hero: ana sayfa ile aynı kozmik katmanlar + ortak iç blok (.sec-inner--nav-hero) */
+  .nav-page-hero {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--bg-0);
+    background-image:
+      radial-gradient(ellipse 145% 280px at 50% -88px, rgba(148, 118, 255, 0.62), transparent 62%),
+      radial-gradient(1200px 640px at 78% 8%, rgba(124, 92, 255, 0.38), transparent 58%),
+      radial-gradient(880px 520px at 10% 45%, rgba(230, 8, 123, 0.16), transparent 55%),
+      linear-gradient(180deg, rgba(62, 58, 142, 0.88) 0%, rgba(31, 28, 87, 0) min(30vh, 240px));
+    padding: clamp(22px, 3.2vw, 32px) 0 clamp(26px, 3.6vw, 40px);
+    min-height: clamp(260px, 34vh, 340px);
+    border-bottom: none;
+    box-shadow: none;
+  }
+
+  .nav-page-hero::before {
+    content: '';
+    position: absolute;
+    inset: -28% -18%;
+    z-index: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 58% 48% at 24% 34%, rgba(148, 118, 255, 0.4), transparent 58%),
+      radial-gradient(ellipse 52% 42% at 78% 66%, rgba(230, 8, 123, 0.13), transparent 55%);
+    animation: navHeroAuroraFloat 26s ease-in-out infinite alternate;
+    will-change: transform, opacity;
+  }
+
+  .nav-page-hero > .sec-inner {
+    position: relative;
+    z-index: 2;
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  .nav-page-hero .stars {
+    z-index: 1;
+  }
+
+  /* Tüm iç sayfa herolarında aynı genişlik, boşluk ve hizalama */
+  .nav-page-hero .sec-inner--nav-hero {
+    max-width: min(820px, 94vw);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 clamp(16px, 3vw, 32px);
+    text-align: center;
+  }
+
+  .nav-page-hero h1.title[class*='title--'] {
+    font-size: clamp(22px, 2.65vw, 32px);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin: 0 0 6px;
+  }
+
+  .nav-page-hero .nav-page-hero-kicker {
+    margin: 0 auto 8px;
+    max-width: 46rem;
+    font-size: clamp(13px, 1.25vw, 16px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.35;
+    color: rgba(248, 246, 255, 0.96);
+    text-shadow: 0 1px 18px rgba(15, 12, 48, 0.55);
+  }
+
+  .nav-page-hero .lead--nav-hero {
+    margin: 0 auto;
+    max-width: 52ch;
+    font-size: clamp(12px, 1.08vw, 14px);
+    font-weight: 500;
+    line-height: 1.55;
+    color: rgba(232, 230, 255, 0.9);
+    text-shadow: 0 1px 14px rgba(12, 10, 40, 0.5);
+  }
+
+  /* Neden Biz: manifesto header ogeleri hero'ya tasindi */
+  .page-neden-biz .nav-page-hero .neden-manifesto-brand {
+    margin: 4px auto 10px;
+    display: flex;
+    justify-content: center;
+  }
+  .page-neden-biz .nav-page-hero .neden-manifesto-brand-img {
+    width: min(52px, 12vw);
+    height: min(52px, 12vw);
+    object-fit: contain;
+    border-radius: 14px;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.86);
+    box-shadow:
+      0 6px 22px -12px rgba(22, 18, 58, 0.55),
+      0 0 0 1px rgba(255, 255, 255, 0.16);
+  }
+  .page-neden-biz .nav-page-hero {
+    min-height: clamp(320px, 44vh, 460px);
+    padding-top: clamp(8px, 1.4vw, 14px);
+    padding-bottom: clamp(42px, 5.4vw, 64px);
+  }
+  .page-neden-biz .site-header + .nav-page-hero {
+    padding-top: 0;
+  }
+  .page-neden-biz .nav-page-hero .sec-inner--nav-hero {
+    max-width: min(940px, 95vw);
+  }
+  .page-neden-biz .nav-page-hero .title--neden-page {
+    font-size: clamp(26px, 3.2vw, 40px);
+    margin-bottom: 8px;
+    line-height: 1.08;
+  }
+  .page-neden-biz .nav-page-hero .nav-page-hero-kicker {
+    font-size: clamp(14px, 1.35vw, 18px);
+    line-height: 1.3;
+    margin-bottom: 10px;
+  }
+  .page-neden-biz .nav-page-hero .lead--nav-hero {
+    max-width: min(72ch, 100%);
+    font-size: clamp(12px, 1.05vw, 14px);
+    line-height: 1.5;
+  }
+
+  .nav-page-hero .nav-page-hero-eyebrow {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin: clamp(8px, 1vw, 14px) 0 8px;
+    padding: 6px 13px;
+    display: inline-block;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    background: rgba(255, 255, 255, 0.09);
+    color: rgba(245, 243, 255, 0.96);
+  }
+
+  .nav-page-hero .title--setleri-page,
+  .nav-page-hero .title--ornek-videos-page,
+  .nav-page-hero .title--neden-page,
+  .nav-page-hero .title--kadro-page,
+  .nav-page-hero .title--iletisim-page,
+  .nav-page-hero .title--faq-sss-page,
+  .nav-page-hero .title--giris-page {
+    background: linear-gradient(118deg, #ffffff 0%, #e9e4ff 44%, #ffb8dc 98%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #ffffff;
+  }
+  @supports not (-webkit-background-clip: text) {
+    .nav-page-hero .title--setleri-page,
+    .nav-page-hero .title--ornek-videos-page,
+    .nav-page-hero .title--neden-page,
+    .nav-page-hero .title--kadro-page,
+    .nav-page-hero .title--iletisim-page,
+    .nav-page-hero .title--faq-sss-page,
+    .nav-page-hero .title--giris-page {
+      -webkit-text-fill-color: #ffffff;
+      background: none;
+      color: #ffffff;
+    }
+  }
+
+  /* Eğitim setleri: paketler (açık) → kozmik yolculuk (ana sayfa ile aynı karanlık tema) */
+  .section-fade--light-to-cosmic {
+    height: clamp(24px, 4vh, 40px);
+    background: linear-gradient(180deg, #ffffff 0%, rgba(31, 28, 87, 0.12) 55%, rgba(31, 28, 87, 0.45) 100%);
+    pointer-events: none;
+  }
+
+  .cosmic-band {
+    position: relative;
+    overflow-x: clip;
+    background-color: var(--bg-0);
+    background-image:
+      radial-gradient(ellipse 145% 280px at 50% -88px, rgba(148, 118, 255, 0.62), transparent 62%),
+      radial-gradient(1200px 640px at 78% 8%, rgba(124, 92, 255, 0.38), transparent 58%),
+      radial-gradient(880px 520px at 10% 45%, rgba(230, 8, 123, 0.16), transparent 55%),
+      linear-gradient(180deg, rgba(62, 58, 142, 0.88) 0%, rgba(31, 28, 87, 0) min(30vh, 240px));
+  }
+
+  .cosmic-band .stars {
+    z-index: 0;
+  }
+
+  .cosmic-band .sec-journey {
+    position: relative;
+    z-index: 1;
+  }
+
+  .cosmic-band .lead.lead--journey {
+    color: rgba(245, 243, 255, 0.9);
+    text-align: center;
+  }
+
+  /* Nav hero altini dogrudan daha derin dalga formunda kes */
+  .nav-page-hero::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: clamp(78px, 11vh, 118px);
+    pointer-events: none;
+    z-index: 3;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 240' preserveAspectRatio='none'%3E%3Cpath d='M0,122 C300,192 620,72 930,154 C1140,210 1295,108 1440,170 L1440,240 L0,240 Z' fill='rgba(94,80,178,0.24)'/%3E%3Cpath d='M0,154 C250,212 530,102 820,180 C1065,234 1270,132 1440,188 L1440,240 L0,240 Z' fill='rgba(150,122,212,0.22)'/%3E%3Cpath d='M0,182 C210,226 470,132 720,192 C950,234 1180,148 1440,196 L1440,240 L0,240 Z' fill='rgba(255,255,255,0.99)'/%3E%3C/svg%3E");
+  }
+
+  /* Nav page altindaki eski divider artik kapali (hero wave cut kullaniliyor) */
+  .space-divider--nav-wave {
+    display: none;
+  }
+
+  /* Divider kalktigi icin ilk icerik blogu boslugunu hero dalgasina gore dengele */
+  .space-divider--nav-wave + .sec > .sec-inner {
+    padding-top: clamp(24px, 4.2vh, 72px);
+    padding-bottom: clamp(18px, 3.2vh, 56px);
+    padding-left: clamp(16px, 3vw, 32px);
+    padding-right: clamp(16px, 3vw, 32px);
+  }
+
+  .sec-setleri-features {
+    padding: 0;
+    background: #ffffff;
+  }
+
+  .sec-inner--setleri {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 clamp(16px, 3vw, 32px);
+    text-align: center;
+  }
+  .title--setleri-page {
+    font-size: clamp(22px, 3vw, 32px);
+    letter-spacing: -0.03em;
+    margin: 0 0 10px;
+    color: var(--ink-dark-0);
+  }
+  .lead--setleri {
+    margin: 0 auto 18px;
+    max-width: 52ch;
+    color: var(--ink-dark-1);
+    font-size: clamp(13px, 1.15vw, 15px);
+    line-height: 1.58;
+    font-weight: 500;
+  }
+  .setleri-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(14px, 2.2vw, 22px);
+    text-align: left;
+    margin-top: 4px;
+  }
+  .setleri-feature-card {
+    border-radius: 16px;
+    padding: 16px 16px 17px;
+    border: 1px solid rgba(62, 58, 142, 0.2);
+    box-shadow:
+      0 4px 14px -4px rgba(62, 58, 142, 0.16),
+      0 20px 44px -30px rgba(62, 58, 142, 0.48),
+      inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  }
+  .setleri-feature-card:nth-child(1) {
+    background: linear-gradient(145deg, rgba(230, 8, 123, 0.1), #fff 50%);
+    border-left: 4px solid rgba(230, 8, 123, 0.55);
+  }
+  .setleri-feature-card:nth-child(2) {
+    background: linear-gradient(145deg, rgba(62, 58, 142, 0.1), #fff 50%);
+    border-left: 4px solid rgba(62, 58, 142, 0.5);
+  }
+  .setleri-feature-card:nth-child(3) {
+    background: linear-gradient(145deg, rgba(124, 92, 255, 0.12), #fff 50%);
+    border-left: 4px solid rgba(124, 92, 255, 0.58);
+  }
+  .setleri-feature-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(230, 8, 123, 0.38);
+    box-shadow:
+      0 12px 32px -14px rgba(230, 8, 123, 0.3),
+      0 24px 52px -28px rgba(62, 58, 142, 0.42),
+      inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  }
+  .setleri-feature-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, rgba(230, 8, 123, 0.14), rgba(62, 58, 142, 0.16));
+    color: var(--p-purple);
+  }
+  .setleri-feature-card:nth-child(1) .setleri-feature-icon {
+    background: linear-gradient(135deg, rgba(230, 8, 123, 0.2), rgba(230, 8, 123, 0.08));
+    color: #c9076e;
+  }
+  .setleri-feature-card:nth-child(2) .setleri-feature-icon {
+    background: linear-gradient(135deg, rgba(62, 58, 142, 0.22), rgba(62, 58, 142, 0.08));
+    color: var(--p-purple);
+  }
+  .setleri-feature-card:nth-child(3) .setleri-feature-icon {
+    background: linear-gradient(135deg, rgba(124, 92, 255, 0.22), rgba(124, 92, 255, 0.09));
+    color: #6b5cff;
+  }
+  .setleri-feature-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+  .setleri-feature-title {
+    font-size: 15px;
+    font-weight: 800;
+    margin: 0 0 7px;
+    color: var(--ink-dark-0);
+    letter-spacing: -0.02em;
+  }
+  .setleri-feature-text {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.52;
+    color: var(--ink-dark-1);
+    font-weight: 500;
+  }
+  .page-egitim-setleri .sec-pricing {
+    padding-top: clamp(16px, 3vw, 28px);
+  }
+  @media (max-width: 900px) {
+    .setleri-feature-grid {
+      grid-template-columns: 1fr;
+    }
+  }

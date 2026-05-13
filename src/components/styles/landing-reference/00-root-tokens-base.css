@@ -1,0 +1,72 @@
+﻿
+  :root {
+    --bg-0: #1f1c57;
+    --bg-1: #2d2a73;
+    --bg-2: #3e3a8e;
+    --bg-3: #f8f2fb;
+    --bg-4: #ffffff;
+    --ink-0: #f6f6ff;
+    --ink-1: #e2e5fb;
+    --ink-2: #aeb6e6;
+    --ink-dark-0: #12152a;
+    --ink-dark-1: #353a5e;
+    --ink-dark-2: #5c6290;
+    --p-purple: #3e3a8e;
+    --p-sun: #e35c97;
+    --p-aqua: #e35c97;
+    --p-pink: #e6087b;
+    --p-green: #e6087b;
+    --line: rgba(255,255,255,0.12);
+    --line-dark: rgba(20,22,50,0.10);
+    /* Bölüm h2 vurguları (marka mor / pembe / güneş / gezegen tonları) */
+    --section-title-grad-pricing: linear-gradient(105deg, #3e3a8e 0%, #b8146e 48%, #e6087b 100%);
+    --section-title-grad-journey: linear-gradient(122deg, #ffffff 0%, #ddd4ff 36%, #c8b8ff 58%, #ffd58a 100%);
+    --section-title-grad-classroom: linear-gradient(100deg, #5b3fd9 0%, #3e3a8e 52%, #e6087b 100%);
+    --section-title-grad-students: linear-gradient(100deg, #e6087b 0%, #e35c97 45%, #ffd58a 100%);
+    --section-title-grad-panel: linear-gradient(100deg, #1a7ba8 0%, #5b3fd9 52%, #7c5cff 100%);
+    --r-s: 10px;
+    --r-m: 18px;
+    --r-l: 28px;
+    --r-xl: 40px;
+    --maxw: 1200px;
+    /* Hero + uzun metin alanları için daha geniş üst bant */
+    --maxw-hero: min(1980px, 100vw - 12px);
+    /* Üst bar + menü: ilk ekranda hero’nun tam görünmesi için yaklaşık yükseklik */
+    --site-header-h: clamp(92px, 11vh, 128px);
+    /* Sticky header altında kalan görünür alan — tam ekran bölümler */
+    --viewport-fill: calc(100svh - var(--site-header-h));
+    --viewport-fill-safe: calc(100dvh - var(--site-header-h));
+  }
+  * { box-sizing: border-box; }
+  html {
+    scroll-padding-top: var(--site-header-h);
+    overflow-x: clip;
+    /* Taşma / overscroll / alt boşluk: varsayılan --bg-0 mavi şerit yerine footer ile aynı ton */
+    background-color: #050616;
+  }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    background: #050616;
+    color: var(--ink-0);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+    overflow-x: clip;
+  }
+  html:has(.hero-pricing-bg),
+  body:has(.hero-pricing-bg) {
+    overflow-x: visible;
+  }
+  body > .site-header:first-child {
+    margin-top: 0;
+  }
+
+  footer.sec-footer {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .mono {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.04em;
+  }

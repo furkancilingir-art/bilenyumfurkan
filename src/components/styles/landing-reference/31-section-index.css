@@ -1,0 +1,66 @@
+
+  /* ---------- Section index ---------- */
+  .toc {
+    position: fixed; top: 100px; right: 16px; z-index: 200;
+    background: rgba(7,9,26,0.85); border: 1px solid var(--line);
+    backdrop-filter: blur(12px);
+    border-radius: 14px; padding: 10px;
+    display: flex; flex-direction: column; gap: 2px;
+    font-family: 'Montserrat', system-ui, sans-serif; font-size: 11px;
+  }
+  .toc a { color: var(--ink-1); text-decoration: none; padding: 6px 10px; border-radius: 6px; }
+  .toc a:hover { background: rgba(124,92,255,0.18); color: white; }
+  @media (max-width: 1280px) { .toc { display: none; } }
+
+  /* Hero: yan yana + büyük gezegen; çok dar ekranda üst üste */
+  @media (max-width: 700px) {
+    /* Üst üste düzende tek viewport’a sığdırmak zor; tam yükseklik kilidini kaldır */
+    .hero-pricing-bg .sec-hero .sec-inner {
+      max-height: none;
+      overflow: visible;
+    }
+    .hero-slider-grid {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+    .hero-pricing-bg .hero-grid.hero-slider-grid {
+      grid-template-columns: 1fr;
+      gap: clamp(16px, 4vw, 26px);
+    }
+    .hero-slider-grid .hero-illus {
+      justify-self: center;
+      margin-top: 8px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-pricing-bg .hero-slider-grid .hero-illus {
+      justify-self: center;
+      margin-inline: auto;
+      width: min(88vw, 400px, calc(100svh - var(--site-header-h) - 96px));
+      max-width: 92vw;
+      max-height: min(380px, 58vh, calc(100svh - var(--site-header-h) - 44px));
+      padding: 0 clamp(8px, 3vw, 16px);
+    }
+  }
+
+  @media (max-width: 980px) {
+    .hero-grid, .panel-grid { grid-template-columns: 1fr; }
+    .classroom-stage { grid-template-columns: 1fr; min-height: 0; }
+    .steps, .pricing-grid, .stats-row, .success-grid, .testi-grid { grid-template-columns: 1fr 1fr; }
+    .ps-grid { grid-template-columns: 1fr; }
+    .classroom-metrics { grid-template-columns: 1fr 1fr; }
+    h1.title { font-size: 48px; }
+    h2.title { font-size: 28px; }
+    .sec-inner { padding: 80px 24px; }
+    /* Genel sec-inner padding hero’yu tekrar aşağı itmesin */
+    .hero-pricing-bg .sec-hero .sec-inner {
+      padding: clamp(2px, 1vw, 10px) 24px clamp(14px, 3vw, 28px);
+    }
+    .hero-pricing-bg .sec-hero {
+      min-height: calc(100svh - var(--site-header-h));
+    }
+  }
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .steps, .pricing-grid, .stats-row, .success-grid, .testi-grid { grid-template-columns: 1fr; }
+  }

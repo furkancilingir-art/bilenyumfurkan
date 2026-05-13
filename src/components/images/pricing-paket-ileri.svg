@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320" fill="none" role="img" aria-labelledby="i">
+  <title id="i">0leri paket  ko�luk ve youn destek</title>
+  <defs>
+    <linearGradient id="ileriBg" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#0f0828"/>
+      <stop offset="40%" stop-color="#3d2a9e"/>
+      <stop offset="100%" stop-color="#e6087b"/>
+    </linearGradient>
+    <linearGradient id="ileriGlow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffd58a"/>
+      <stop offset="100%" stop-color="#ffb347"/>
+    </linearGradient>
+    <radialGradient id="ileriOrb" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#fff" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#7c5cff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="320" fill="url(#ileriBg)"/>
+  <ellipse cx="400" cy="140" rx="200" ry="120" fill="url(#ileriOrb)"/>
+  <path d="M400 52l28 58 62 10-46 42 12 64-56-32-56 32 12-64-46-42 62-10 28-58z" fill="url(#ileriGlow)" stroke="#fff" stroke-opacity="0.35" stroke-width="3"/>
+  <circle cx="400" cy="228" r="56" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.35)" stroke-width="3"/>
+  <path d="M376 228l16 16 40-44" stroke="#34d399" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M220 260h360" stroke="rgba(255,255,255,0.2)" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="260" cy="260" r="8" fill="#5eead4"/>
+  <circle cx="400" cy="260" r="8" fill="#e6087b"/>
+  <circle cx="540" cy="260" r="8" fill="#ffd58a"/>
+</svg>

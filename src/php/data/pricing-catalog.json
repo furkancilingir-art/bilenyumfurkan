@@ -1,0 +1,265 @@
+{
+  "5": [
+    {
+      "theme": "tum-dersler",
+      "name": "Tüm Dersler Paketi",
+      "price": "890",
+      "total": "10.680",
+      "users": "1.340",
+      "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=960&q=80",
+      "alt": "Tüm dersler paketi görseli",
+      "features": [
+        "5. sınıf için tüm branşlarda canlı ders",
+        "Oyunlaştırılmış içerik ve ödüller",
+        "Veli paneli ve devamsızlık uyarısı",
+        "Kayıttan tekrar"
+      ]
+    },
+    {
+      "theme": "sayisal",
+      "name": "Sayısal Paketi",
+      "price": "790",
+      "total": "9.480",
+      "users": "990",
+      "img": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=960&q=80",
+      "alt": "Sayısal paket görseli",
+      "features": [
+        "Matematik ve fen için temel güçlendirme",
+        "Kısa testler ve alıştırmalar",
+        "Görsel materyaller",
+        "Öğretmen desteği"
+      ]
+    },
+    {
+      "theme": "sozel",
+      "name": "Sözel Paketi",
+      "price": "790",
+      "total": "9.480",
+      "users": "940",
+      "img": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=960&q=80",
+      "alt": "Sözel paket görseli",
+      "features": [
+        "Türkçe ve sosyal alan için temel beceriler",
+        "Hikâye ve paragraf çalışmaları",
+        "Diksiyon ve okuma saati",
+        "Veli özet raporu"
+      ]
+    },
+    {
+      "theme": "birebir",
+      "name": "Birebir Özel Ders Paketi",
+      "price": "1.990",
+      "total": "23.880",
+      "users": "310",
+      "img": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=960&q=80",
+      "alt": "Birebir özel ders paketi görseli",
+      "features": [
+        "Birebir özel ders ile okula uyum desteği",
+        "Öğrenciye özel ödev ve takip",
+        "Veli görüşmeleri",
+        "Esnek program"
+      ]
+    }
+  ],
+  "6": [
+    {
+      "theme": "tum-dersler",
+      "name": "Tüm Dersler Paketi",
+      "price": "990",
+      "total": "11.880",
+      "users": "1.520",
+      "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=960&q=80",
+      "alt": "Tüm dersler paketi görseli",
+      "features": [
+        "6. sınıf müfredatında tüm dersler",
+        "Etkileşimli canlı dersler ve arşiv",
+        "Veli paneli ve başarı takibi",
+        "Telafi imkânı"
+      ]
+    },
+    {
+      "theme": "sayisal",
+      "name": "Sayısal Paketi",
+      "price": "890",
+      "total": "10.680",
+      "users": "1.180",
+      "img": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=960&q=80",
+      "alt": "Sayısal paket görseli",
+      "features": [
+        "Matematik ve fen için ek soru ve tekrar setleri",
+        "Mini denemeler ve grafiksel ilerleme",
+        "Kavram pekiştirme videoları",
+        "Öğretmen yorumları"
+      ]
+    },
+    {
+      "theme": "sozel",
+      "name": "Sözel Paketi",
+      "price": "890",
+      "total": "10.680",
+      "users": "1.090",
+      "img": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=960&q=80",
+      "alt": "Sözel paket görseli",
+      "features": [
+        "Türkçe ve sosyal bilgiler odaklı içerik",
+        "Okuma ve yazma çalışmaları",
+        "Proje ve ödev desteği",
+        "Gelişim raporu"
+      ]
+    },
+    {
+      "theme": "birebir",
+      "name": "Birebir Özel Ders Paketi",
+      "price": "2.090",
+      "total": "25.080",
+      "users": "380",
+      "img": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=960&q=80",
+      "alt": "Birebir özel ders paketi görseli",
+      "features": [
+        "Birebir ders ile kişiselleştirilmiş tempo",
+        "Eksik konu kapatma ve ödev kontrolü",
+        "Veliye düzenli geri bildirim",
+        "Esnek saat planı"
+      ]
+    }
+  ],
+  "7": [
+    {
+      "theme": "tum-dersler",
+      "name": "Tüm Dersler Paketi",
+      "price": "1.090",
+      "total": "13.080",
+      "users": "1.780",
+      "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=960&q=80",
+      "alt": "Tüm dersler paketi görseli",
+      "features": [
+        "Sınıf müfredatına uygun tüm derslerde canlı ders",
+        "Kayıtlı içerik ve tekrar imkânı",
+        "Veli paneli ve dönem raporu",
+        "Telafi ve devamsızlık bildirimi"
+      ]
+    },
+    {
+      "theme": "sayisal",
+      "name": "Sayısal Paketi",
+      "price": "990",
+      "total": "11.880",
+      "users": "1.340",
+      "img": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=960&q=80",
+      "alt": "Sayısal paket görseli",
+      "features": [
+        "Matematik ve fen bilimleri ağırlıklı program",
+        "Konu testleri ve gelişim grafiği",
+        "Deneme sonuçlarıyla eksik kazanım uyarısı",
+        "Öğretmen geri bildirimi"
+      ]
+    },
+    {
+      "theme": "sozel",
+      "name": "Sözel Paketi",
+      "price": "990",
+      "total": "11.880",
+      "users": "1.260",
+      "img": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=960&q=80",
+      "alt": "Sözel paket görseli",
+      "features": [
+        "Türkçe ve sosyal alan dersleri ile dil gelişimi",
+        "Paragraf ve yazılı hazırlık içerikleri",
+        "Okuma alışkanlığı ve kelime çalışmaları",
+        "Veliye düzenli gelişim özeti"
+      ]
+    },
+    {
+      "theme": "birebir",
+      "name": "Birebir Özel Ders Paketi",
+      "price": "2.290",
+      "total": "27.480",
+      "users": "440",
+      "img": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=960&q=80",
+      "alt": "Birebir özel ders paketi görseli",
+      "features": [
+        "Tek öğrenciye özel ders saatleri",
+        "Kişisel eksik analizi ve ödev planı",
+        "Veli bilgilendirme görüşmeleri",
+        "Öncelikli destek"
+      ]
+    }
+  ],
+  "8": [
+    {
+      "theme": "hizlandirma",
+      "name": "LGS Hızlandırma",
+      "price": "899",
+      "total": "10.788",
+      "users": "1.120",
+      "img": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=960&q=80",
+      "alt": "LGS hızlandırma paketi görseli",
+      "features": [
+        "Sınava yakın dönem yoğun LGS tekrar ve pekiştirme",
+        "Günlük canlı / kayıttan izlenebilir akış ve ödev blokları",
+        "Branş bazlı mini deneme ve eksik kapanış önerileri",
+        "Veli panelinde haftalık özet ve uyarılar"
+      ]
+    },
+    {
+      "theme": "tum-dersler",
+      "name": "LGS Tüm Dersler Paketi",
+      "price": "1.290",
+      "total": "15.480",
+      "users": "2.050",
+      "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=960&q=80",
+      "alt": "LGS tüm dersler paketi görseli",
+      "features": [
+        "LGS kapsamındaki tüm derslerde canlı ders erişimi",
+        "Dijital içerik ve kayıt arşivi",
+        "Veli bilgilendirme paneli ve düzenli rapor",
+        "Telafi ve katılım takibi"
+      ]
+    },
+    {
+      "theme": "sayisal",
+      "name": "LGS Sayısal Paketi",
+      "price": "1.190",
+      "total": "14.280",
+      "users": "1.580",
+      "img": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=960&q=80",
+      "alt": "LGS sayısal paket görseli",
+      "features": [
+        "Matematik, Fen Bilimleri ve sayısal odaklı içerikler",
+        "Konu + soru tipi bazlı deneme ve analiz",
+        "Hedeflenen net ve sıralama için çalışma önerileri",
+        "Öğretmen geri bildirimi ve veli özeti"
+      ]
+    },
+    {
+      "theme": "sozel",
+      "name": "LGS Sözel Paketi",
+      "price": "1.190",
+      "total": "14.280",
+      "users": "1.420",
+      "img": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=960&q=80",
+      "alt": "LGS sözel paket görseli",
+      "features": [
+        "Türkçe, T.C. İnkılap, Din ve İngilizce odaklı program",
+        "Okuma anlama ve paragraf çalışma parkurları",
+        "Yazılı / sözel sınavlara uygun kaynaklar",
+        "Düzenli performans raporu"
+      ]
+    },
+    {
+      "theme": "birebir",
+      "name": "Birebir Özel Ders Paketi",
+      "price": "2.590",
+      "total": "31.080",
+      "users": "520",
+      "img": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=960&q=80",
+      "alt": "Birebir özel ders paketi görseli",
+      "features": [
+        "Birebir özel ders saatleri ve esnek planlama",
+        "Öğrenciye özel içerik ve ödev takibi",
+        "Veli ile düzenli görüşme özeti",
+        "Öncelikli akademik destek hattı"
+      ]
+    }
+  ]
+}

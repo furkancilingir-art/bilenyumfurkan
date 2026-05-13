@@ -1,0 +1,135 @@
+
+  /* ---------- Ana menü (Bootstrap .nav ile karışmaması için .site-nav) ---------- */
+  .site-header > header.site-nav {
+    font-size: 16px;
+    line-height: normal;
+  }
+  header.site-nav,
+  .site-nav {
+    display: block;
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: relative;
+    z-index: 1;
+    /* Beyaz içerik üzerinde kaybolmaması için hafif ton + alt gölge/sınır */
+    background: linear-gradient(180deg, #ffffff 0%, #faf9ff 100%);
+    border: 0 !important;
+    /* Alt kenarda düz mor-mavi çizgi / şerit oluşturmasın; ayrım box-shadow ile */
+    border-bottom: 0 !important;
+    box-shadow:
+      0 8px 28px -14px rgba(62, 58, 142, 0.28),
+      0 3px 12px -6px rgba(18, 21, 42, 0.09) !important;
+    outline: none !important;
+    flex: 0 0 auto;
+    align-self: stretch;
+    min-height: 0;
+    height: auto;
+    max-height: none;
+  }
+  /* Topbar düz kalsın; menü satırı altında ayırıcı (nav kurallarında) */
+  .site-header > .topbar {
+    border-bottom: 0 !important;
+    border-top: 0 !important;
+    box-shadow: none !important;
+    outline: none !important;
+    margin-bottom: 0 !important;
+  }
+  .site-header > header.site-nav {
+    border-top: 0 !important;
+    outline: none !important;
+    margin-bottom: 0 !important;
+  }
+  .nav-inner {
+    max-width: min(100%, 1560px);
+    width: 100%;
+    margin: 0 auto;
+    padding: 12px clamp(10px, 2vw, 28px) 12px clamp(6px, 1.2vw, 16px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: clamp(14px, 2vw, 28px);
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    box-sizing: border-box;
+  }
+  .nav-inner::-webkit-scrollbar {
+    display: none;
+  }
+  .logo { display: inline-flex; align-items: center; flex-shrink: 0; }
+  .site-nav .logo picture {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .logo-img { height: 38px; width: auto; display: block; filter: none; }
+  .sec-footer .logo-img { height: 38px; filter: brightness(0) invert(1); }
+  .nav-links {
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: clamp(12px, 1.5vw, 26px);
+    font-size: clamp(13px, 1.05vw, 15px);
+    font-weight: 700;
+    color: var(--ink-dark-0);
+    letter-spacing: 0.01em;
+    min-width: 0;
+  }
+  .nav-links a.nav-link,
+  .nav-links span {
+    white-space: nowrap;
+  }
+  .nav-links span { cursor: pointer; }
+  .nav-links span:hover { color: var(--p-pink); }
+  .nav-cta {
+    display: flex;
+    gap: clamp(6px, 1vw, 10px);
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .nav-cta .btn.btn-sm {
+    height: 42px;
+    padding: 0 clamp(12px, 1.2vw, 18px);
+    font-size: clamp(12px, 0.95vw, 14px);
+    white-space: nowrap;
+  }
+  .nav-cta .btn-ghost {
+    background: #fff;
+    color: var(--p-purple);
+    border: 1px solid rgba(62,58,142,0.32);
+    box-shadow: none;
+  }
+  .nav-cta .btn-ghost:hover {
+    background: var(--p-pink);
+    color: #fff;
+    border-color: var(--p-pink);
+    box-shadow: 0 12px 24px -14px rgba(230,8,123,0.35);
+  }
+  .nav-cta .btn-primary {
+    background: var(--p-purple);
+    border: 1px solid rgba(62,58,142,0.35);
+    box-shadow: none;
+  }
+  .nav-cta .btn-primary:hover {
+    background: var(--p-pink);
+    border-color: var(--p-pink);
+    box-shadow: 0 12px 26px -14px rgba(230,8,123,0.4);
+  }
+
+  /* Dar ekran: logo negatif margin taşmasın, CTA daha kompakt; nav-links 640px altında gizli */
+  @media (max-width: 640px) {
+    .nav-inner {
+      gap: 8px;
+      padding-left: max(8px, env(safe-area-inset-left, 0px));
+      padding-right: max(8px, env(safe-area-inset-right, 0px));
+    }
+    .nav-cta .btn.btn-sm {
+      height: 40px;
+      padding: 0 10px;
+      font-size: 11px;
+    }
+  }

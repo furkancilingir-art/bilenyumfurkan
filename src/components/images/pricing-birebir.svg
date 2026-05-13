@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320" fill="none" role="img"><title>Birebir �zel ders</title>
+  <defs><linearGradient id="bb" x1="0.5" y1="0" x2="0.5" y2="1"><stop offset="0%" stop-color="#1e1b4b"/><stop offset="55%" stop-color="#4c1d95"/><stop offset="100%" stop-color="#0f766e"/></linearGradient></defs>
+  <rect width="800" height="320" fill="url(#bb)"/>
+  <circle cx="280" cy="140" r="52" stroke="#a78bfa" stroke-width="4" fill="rgba(167,139,250,0.15)"/>
+  <circle cx="520" cy="140" r="52" stroke="#5eead4" stroke-width="4" fill="rgba(94,234,212,0.12)"/>
+  <path d="M332 140h136" stroke="#fbbf24" stroke-width="6" stroke-linecap="round" stroke-dasharray="12 14"/>
+  <circle cx="400" cy="230" r="8" fill="#fbbf24"/>
+</svg>

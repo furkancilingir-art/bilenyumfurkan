@@ -1,0 +1,14 @@
+
+  /* ---------- Placeholders (still wireframe-feeling) ---------- */
+  .ph {
+    border: 1.5px dashed rgba(255,255,255,0.20);
+    background: rgba(255,255,255,0.03);
+    border-radius: var(--r-m);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--ink-2);
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+    text-align: center; padding: 24px;
+  }
+  .sec.light .ph { border-color: rgba(20,22,50,0.16); background: rgba(20,22,50,0.015); color: var(--ink-dark-2); }
+  .ph-circle { border-radius: 999px; aspect-ratio: 1/1; }

@@ -1,0 +1,19 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Bilenyum Static Server",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "--yes",
+        "live-server",
+        "src/pages",
+        "--port=5501",
+        "--host=127.0.0.1",
+        "--no-browser",
+        "--wait=200"
+      ],
+      "port": 5501
+    }
+  ]
+}

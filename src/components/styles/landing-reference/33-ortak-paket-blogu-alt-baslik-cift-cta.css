@@ -1,0 +1,18 @@
+
+  /* ---------- Ortak paket bloğu: alt başlık + çift CTA ---------- */
+  .pricing-section-lead {
+    max-width: 52ch;
+    margin: -8px auto 0;
+    text-align: center;
+    color: var(--ink-dark-1);
+    font-weight: 500;
+    line-height: 1.65;
+  }
+  .pricing-cta--dual {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 8px;
+  }

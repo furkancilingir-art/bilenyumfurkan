@@ -1,0 +1,199 @@
+
+  /* ---------- Star field (decorative) ---------- */
+  .stars { position: absolute; inset: 0; pointer-events: none; z-index: 0; transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); will-change: transform; }
+  .star { position: absolute; background: white; border-radius: 50%; opacity: 0.7; }
+  .star.s1 { width: 1px; height: 1px; }
+  .star.s2 { width: 2px; height: 2px; opacity: 0.85; }
+  .star.s3 { width: 3px; height: 3px; box-shadow: 0 0 6px white; }
+  @keyframes twinkle { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+  .star.tw { animation: twinkle 3s ease-in-out infinite; }
+
+  /* Distant planets */
+  .distant-planet {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: distantFloat 16s ease-in-out infinite;
+  }
+  .distant-planet::after {
+    content: ""; position: absolute; inset: -5px;
+    border: 1px solid rgba(255,255,255,0.22);
+    border-radius: 50%;
+    transform: rotate(-25deg) scaleY(0.3);
+  }
+  .distant-planet.p1 {
+    width: 50px; height: 50px;
+    top: 6%; left: 3%;
+    background: radial-gradient(circle at 30% 30%, #c8b8ff, #7c5cff 60%, #3a1ea8);
+    box-shadow: 0 0 22px rgba(124,92,255,0.45), inset -3px -4px 6px rgba(0,0,0,0.4);
+    opacity: 0.55;
+  }
+  .distant-planet.p2 {
+    width: 22px; height: 22px;
+    top: 72%; left: 8%;
+    background: radial-gradient(circle at 30% 30%, #b8e8ff, #4ad6ff 60%, #1a7ba8);
+    box-shadow: 0 0 14px rgba(74,214,255,0.4), inset -2px -3px 5px rgba(0,0,0,0.4);
+    opacity: 0.5;
+    animation-duration: 19s; animation-delay: -4s;
+  }
+  .distant-planet.p3 {
+    width: 60px; height: 60px;
+    top: 20%; right: 6%; left: auto;
+    background: radial-gradient(circle at 30% 30%, #ffd8e8, #ff7ab8 60%, #aa3070);
+    box-shadow: 0 0 18px rgba(255,122,184,0.35), inset -3px -4px 6px rgba(0,0,0,0.4);
+    opacity: 0.4;
+    animation-duration: 22s; animation-delay: -10s;
+  }
+  .distant-planet.p4 {
+    width: 30px; height: 30px;
+    top: 78%; right: 18%; left: auto;
+    background: radial-gradient(circle at 30% 30%, #d8ffe8, #6dd49e 60%, #2a8a5a);
+    box-shadow: 0 0 16px rgba(109,212,158,0.35), inset -3px -4px 6px rgba(0,0,0,0.4);
+    opacity: 0.45;
+    animation-duration: 17s; animation-delay: -6s;
+  }
+  @keyframes distantFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-16px); }
+  }
+
+  /* Shooting stars */
+  .shooting-star {
+    position: absolute;
+    width: 90px; height: 1px;
+    background: linear-gradient(to right, white, rgba(255,255,255,0));
+    border-radius: 999px;
+    opacity: 0;
+    pointer-events: none;
+    transform-origin: 0% 50%;
+    animation: shootStar 7s linear infinite;
+  }
+  .shooting-star::after {
+    content: ""; position: absolute;
+    left: 0; top: 50%;
+    width: 3px; height: 3px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 8px white, 0 0 16px white;
+    transform: translateY(-50%);
+  }
+  @keyframes shootStar {
+    0% { transform: translate(0, 0) rotate(-22deg); opacity: 0; }
+    4% { opacity: 1; }
+    18% { opacity: 1; }
+    22% { opacity: 0; }
+    100% { transform: translate(-650px, 260px) rotate(-22deg); opacity: 0; }
+  }
+  @keyframes shootStarRight {
+    0% { transform: translate(0, 0) rotate(-22deg); opacity: 0; }
+    4% { opacity: 1; }
+    18% { opacity: 1; }
+    22% { opacity: 0; }
+    100% { transform: translate(650px, 260px) rotate(-22deg); opacity: 0; }
+  }
+  .shooting-star.dir-right {
+    background: linear-gradient(to left, white, rgba(255,255,255,0));
+    transform-origin: 100% 50%;
+    animation-name: shootStarRight;
+  }
+  .shooting-star.dir-right::after {
+    right: 0; left: auto;
+  }
+  .shooting-star.ss1 { top: 6%; right: 8%; animation-delay: 2s; }
+  .shooting-star.ss2 { top: 18%; left: 10%; animation-delay: 7s; animation-duration: 9s; }
+  .shooting-star.ss3 { top: 4%; left: 48%; animation-delay: 12s; animation-duration: 8s; }
+  .shooting-star.ss4 { top: 38%; right: 24%; animation-delay: 4s; animation-duration: 10s; }
+  .shooting-star.ss5 { top: 12%; left: 32%; animation-delay: 16s; animation-duration: 8s; }
+  .shooting-star.ss6 { top: 30%; left: 4%; animation-delay: 9s; animation-duration: 9s; }
+
+  /* Ana sayfa + nav sayfaları: kozmik zemin hafif hareket (yıldız drift + aurora) */
+  @keyframes navHeroStarsDrift {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      transform: translate3d(-28px, -16px, 0);
+    }
+  }
+
+  @keyframes navHeroAuroraFloat {
+    0% {
+      transform: translate3d(-5%, -4%, 0) scale(1);
+      opacity: 0.72;
+    }
+    100% {
+      transform: translate3d(4%, 5%, 0) scale(1.07);
+      opacity: 0.92;
+    }
+  }
+
+  /* Fare paralaksı .stars üzerinde transform kullanır — drift animasyonu kapalı (v2.html ile uyum). */
+  .hero-pricing-bg .stars,
+  .nav-page-hero .stars,
+  [data-cosmos-parallax] .stars {
+    animation: none;
+    will-change: transform;
+  }
+
+  /* Parallax: tüm kozmik hero / bant yıldız katmanlarında aynı yumuşak transform geçişi. */
+  .hero-pricing-bg .stars,
+  .nav-page-hero .stars,
+  [data-cosmos-parallax] .stars {
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-pricing-bg .stars,
+    .nav-page-hero .stars,
+    [data-cosmos-parallax] .stars {
+      animation: none;
+    }
+
+    .hero-pricing-bg::before,
+    .nav-page-hero::before {
+      animation: none !important;
+    }
+  }
+
+  /* Hero bloğu: açılış etiketi ile section arasında boşluk karakteri kalmasın — hayalet satır yüksekliği yok */
+  .hero-pricing-bg {
+    position: relative;
+    z-index: 1;
+    overflow-x: visible;
+    isolation: isolate;
+    margin-top: 0;
+    padding-top: 0;
+    font-size: 0;
+    line-height: 0;
+    background-color: var(--bg-0);
+    background-image:
+      radial-gradient(ellipse 145% 280px at 50% -88px, rgba(148, 118, 255, 0.62), transparent 62%),
+      radial-gradient(1200px 640px at 78% 8%, rgba(124, 92, 255, 0.38), transparent 58%),
+      radial-gradient(880px 520px at 10% 45%, rgba(230, 8, 123, 0.16), transparent 55%),
+      linear-gradient(180deg, rgba(62, 58, 142, 0.88) 0%, rgba(31, 28, 87, 0) min(30vh, 240px));
+  }
+
+  .hero-pricing-bg::before {
+    content: '';
+    position: absolute;
+    inset: -30% -20%;
+    z-index: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 58% 48% at 22% 32%, rgba(148, 118, 255, 0.38), transparent 58%),
+      radial-gradient(ellipse 52% 42% at 80% 68%, rgba(230, 8, 123, 0.12), transparent 55%);
+    animation: navHeroAuroraFloat 28s ease-in-out infinite alternate;
+    will-change: transform, opacity;
+  }
+  /* Sticky header / alt piksel boşluğu: kozmik zemin 1px üst üste binsin */
+  .site-header + .hero-pricing-bg {
+    margin-top: -1px;
+    padding-top: 1px;
+  }
+  .hero-pricing-bg > * {
+    font-size: initial;
+    line-height: normal;
+  }
+  .hero-pricing-bg .stars {
+    z-index: 1;
+  }

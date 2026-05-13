@@ -1,0 +1,195 @@
+
+  /* ---------- Section backgrounds ---------- */
+  .sec-hero { background: transparent; min-height: 0; }
+  .sec-problem { background: var(--bg-1); }
+  .sec-classroom { background: var(--bg-4); position: relative; overflow: hidden; }
+
+  /* Animated background pattern (play icons + video cards) */
+  .classroom-bg-pattern {
+    position: absolute; inset: 0;
+    pointer-events: none; z-index: 0;
+  }
+  .bg-pat {
+    position: absolute;
+    color: var(--p-purple);
+    opacity: 0.10;
+    animation: patFloat 14s ease-in-out infinite;
+  }
+  .bg-pat.play { width: 36px; height: 36px; }
+  .bg-pat.card { width: 56px; height: 56px; color: var(--p-aqua); opacity: 0.12; }
+  .bg-pat.p1 { top: 6%; left: 4%; animation-delay: -1s; }
+  .bg-pat.p2 { top: 18%; right: 8%; animation-delay: -4s; animation-duration: 17s; }
+  .bg-pat.p3 { bottom: 22%; left: 6%; animation-delay: -7s; animation-duration: 16s; color: var(--p-pink); opacity: 0.12; }
+  .bg-pat.p4 { bottom: 8%; right: 12%; animation-delay: -2s; }
+  .bg-pat.p5 { top: 48%; left: 92%; animation-delay: -10s; animation-duration: 18s; color: var(--p-sun); opacity: 0.14; }
+  .bg-pat.c1 { top: 12%; left: 16%; animation-delay: -3s; animation-duration: 19s; }
+  .bg-pat.c2 { top: 52%; right: 4%; animation-delay: -6s; animation-duration: 15s; color: var(--p-purple); opacity: 0.10; }
+  .bg-pat.c3 { bottom: 14%; left: 28%; animation-delay: -8s; animation-duration: 17s; color: var(--p-green); opacity: 0.12; }
+  .bg-pat.c4 { top: 28%; left: 50%; animation-delay: -12s; animation-duration: 20s; color: var(--p-pink); opacity: 0.10; }
+  @keyframes patFloat {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(8px, -10px) rotate(6deg); }
+    66% { transform: translate(-6px, 8px) rotate(-4deg); }
+  }
+
+  .sec-classroom .sec-inner { position: relative; z-index: 1; }
+
+  /* Teacher image (FaceTime mockup) */
+  .teacher-image {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    transition: opacity 0.35s ease;
+  }
+  .teacher-image.swapping { opacity: 0; }
+
+  /* Centered play button overlay */
+  .video-play {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 88px; height: 88px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.92);
+    border: 3px solid rgba(255,255,255,0.5);
+    color: var(--ink-dark-0);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    z-index: 3;
+    box-shadow: 0 0 0 12px rgba(255,255,255,0.10), 0 18px 40px rgba(0,0,0,0.5);
+    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  }
+  .video-play:hover {
+    transform: translate(-50%, -50%) scale(1.06);
+    background: white;
+    box-shadow: 0 0 0 16px rgba(255,255,255,0.14), 0 22px 48px rgba(0,0,0,0.6);
+  }
+  .video-play svg {
+    width: 32px; height: 32px;
+    margin-left: 4px;
+    color: var(--p-purple);
+  }
+  .teacher-name {
+    position: absolute; bottom: 88px; left: 16px;
+    z-index: 2;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 13px; font-weight: 600;
+    letter-spacing: -0.005em;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  }
+
+  /* Picture-in-picture self view */
+  .vc-self-view {
+    position: absolute;
+    top: 50px; right: 16px;
+    width: 96px; height: 72px;
+    border-radius: 12px;
+    overflow: hidden;
+    z-index: 2;
+    border: 2px solid rgba(255,255,255,0.5);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+  }
+  .vc-self-view img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+
+  /* Zoom-style meeting header */
+  .zoom-header {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 44px;
+    background: linear-gradient(180deg, rgba(0,0,0,0.75), rgba(0,0,0,0.10));
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 16px;
+    color: white;
+    z-index: 2;
+    font-size: 13px;
+  }
+  .zoom-meeting-info {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-weight: 600; letter-spacing: -0.005em;
+  }
+  .zoom-rec {
+    width: 10px; height: 10px;
+    background: #ff4444;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(255,68,68,0.7);
+    animation: twinkle 1.4s ease-in-out infinite;
+  }
+  .zoom-duration {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600;
+    background: rgba(255,255,255,0.16);
+    padding: 5px 10px;
+    border-radius: 6px;
+  }
+
+  /* Zoom-style participant strip */
+  .zoom-participants {
+    position: absolute;
+    top: 56px; right: 12px;
+    z-index: 2;
+    display: flex; flex-direction: column;
+    gap: 8px;
+  }
+  .zoom-tile {
+    width: 96px; height: 68px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+  }
+  .zoom-tile img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .zoom-tile-name {
+    position: absolute;
+    bottom: 4px; left: 4px;
+    background: rgba(0,0,0,0.75);
+    color: white;
+    font-size: 10px; font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 4px;
+    letter-spacing: -0.005em;
+  }
+
+  /* Video call control bar */
+  .vc-controls {
+    position: absolute;
+    bottom: 18px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; gap: 10px;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(14px);
+    padding: 10px 14px;
+    border-radius: 999px;
+    z-index: 2;
+    border: 1px solid rgba(255,255,255,0.10);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+  }
+  .vc-btn {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.14);
+    border: none;
+    color: white;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+  .vc-btn:hover { background: rgba(255,255,255,0.25); transform: scale(1.05); }
+  .vc-btn svg { width: 18px; height: 18px; }
+  .vc-btn.end { background: #ff4444; }
+  .vc-btn.end:hover { background: #ff5555; }
+  .vc-btn.end svg { width: 20px; height: 20px; transform: rotate(135deg); }
+  .sec-how { background: var(--bg-3); }
+  .sec-video { background: var(--bg-2); }
+  .sec-panel { background: var(--bg-4); }
+  .sec-pricing { background: transparent; }
+  .sec-journey { background: transparent; }

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320" fill="none" role="img" aria-labelledby="t">
+  <title id="t">Temel paket  �ekirdek canl1 ders ve takip</title>
+  <defs>
+    <linearGradient id="temelBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2f2a6e"/>
+      <stop offset="55%" stop-color="#4d3aa8"/>
+      <stop offset="100%" stop-color="#6b52d8"/>
+    </linearGradient>
+    <linearGradient id="temelBook" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f4eeff"/>
+      <stop offset="100%" stop-color="#c8b8ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="320" rx="0" fill="url(#temelBg)"/>
+  <circle cx="620" cy="70" r="120" fill="#e6087b" opacity="0.12"/>
+  <circle cx="140" cy="260" r="90" fill="#5eead4" opacity="0.1"/>
+  <path d="M240 88h240c16 0 28 12 28 28v168c0 16-12 28-28 28H240c-16 0-28-12-28-28V116c0-16 12-28 28-28z" fill="url(#temelBook)" opacity="0.95"/>
+  <path d="M360 88v224" stroke="#3e3a8e" stroke-opacity="0.35" stroke-width="3"/>
+  <path d="M268 148h184M268 184h140M268 220h160" stroke="#3e3a8e" stroke-opacity="0.25" stroke-width="10" stroke-linecap="round"/>
+  <path d="M520 200l28 28 52-60" stroke="#34d399" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="520" cy="200" r="16" fill="#34d399"/>
+</svg>

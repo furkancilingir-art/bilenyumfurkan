@@ -1,0 +1,19 @@
+
+  /* ---------- Nav: tıklanabilir linkler ---------- */
+  .site-nav .logo {
+    text-decoration: none;
+    color: inherit;
+  }
+  .nav-links a.nav-link {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.18s ease;
+  }
+  .nav-links a.nav-link:hover {
+    color: var(--p-pink);
+  }
+  .nav-links a.nav-link.is-active {
+    color: var(--p-pink);
+    box-shadow: inset 0 -2px 0 var(--p-pink);
+  }

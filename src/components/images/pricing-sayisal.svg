@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320" fill="none" role="img"><title>Say1sal paket</title>
+  <defs><linearGradient id="sy" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0ea5e9"/><stop offset="55%" stop-color="#0369a1"/><stop offset="100%" stop-color="#312e81"/></linearGradient></defs>
+  <rect width="800" height="320" fill="url(#sy)"/>
+  <path d="M140 220 L260 120 L380 180 L500 90 L620 140 L740 60" stroke="#7dd3fc" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="260" cy="120" r="14" fill="#e0f2fe"/><circle cx="500" cy="90" r="14" fill="#e0f2fe"/><circle cx="740" cy="60" r="16" fill="#fbbf24"/>
+  <text x="200" y="270" fill="#e0f2fe" font-family="system-ui" font-size="48" font-weight="800" opacity="0.35">fx  �</text>
+</svg>

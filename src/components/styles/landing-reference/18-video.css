@@ -1,0 +1,33 @@
+
+  /* ---------- Video ---------- */
+  .video-frame {
+    margin-top: 40px;
+    aspect-ratio: 16/9;
+    border-radius: var(--r-xl);
+    background:
+      radial-gradient(600px 300px at 50% 50%, rgba(124,92,255,0.3), transparent 60%),
+      #0a0d24;
+    border: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+    box-shadow: 0 40px 80px -30px rgba(124,92,255,0.4);
+  }
+  .play-btn {
+    width: 96px; height: 96px; border-radius: 50%;
+    background: white; color: var(--bg-0);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 32px;
+    box-shadow: 0 0 0 12px rgba(255,255,255,0.08), 0 20px 50px rgba(0,0,0,0.4);
+    cursor: pointer;
+  }
+  .video-meta {
+    position: absolute; bottom: 24px; left: 24px;
+    display: flex; gap: 10px;
+  }
+  .video-tag {
+    padding: 6px 12px; border-radius: 999px;
+    background: rgba(0,0,0,0.5); backdrop-filter: blur(8px);
+    border: 1px solid var(--line);
+    font-size: 12px; color: var(--ink-1);
+    font-family: 'Montserrat', system-ui, sans-serif; letter-spacing: 0.06em;
+  }

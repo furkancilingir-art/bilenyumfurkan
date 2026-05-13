@@ -1,0 +1,653 @@
+
+  /* ---------- Yumi — davet kartı (maskot + Ben Yumi / Bana soru sor) ---------- */
+  .yumi-fab-shell {
+    position: fixed;
+    bottom: max(18px, env(safe-area-inset-bottom, 0px));
+    right: max(16px, env(safe-area-inset-right, 0px));
+    z-index: 125;
+    pointer-events: none;
+    isolation: isolate;
+    max-width: calc(100vw - 24px);
+    transform: translateY(0) scale(1);
+    transition:
+      opacity 0.28s ease,
+      transform 0.28s ease,
+      visibility 0.28s ease;
+  }
+
+  .yumi-fab-shell.yumi-fab-shell--concealed {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(16px) scale(0.94);
+  }
+
+  .yumi-fab-launcher {
+    pointer-events: auto;
+    position: relative;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    padding: 8px 22px 8px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.26);
+    background: linear-gradient(90deg, #3e3a8e 0%, #e6087b 100%);
+    color: #fff;
+    border-radius: 999px;
+    box-shadow:
+      0 10px 24px -14px rgba(52, 46, 126, 0.45),
+      inset 0 1px 0 rgba(255, 255, 255, 0.22);
+    cursor: pointer;
+    font-family: inherit;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.22s ease, filter 0.2s ease;
+    width: min(356px, calc(100vw - 24px));
+    max-width: calc(100vw - 24px);
+  }
+
+  .yumi-fab-launcher:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.04);
+    box-shadow:
+      0 14px 28px -15px rgba(52, 46, 126, 0.52),
+      inset 0 1px 0 rgba(255, 255, 255, 0.26);
+  }
+
+  .yumi-fab-launcher:focus-visible {
+    outline: 2px solid rgba(124, 92, 255, 0.9);
+    outline-offset: 3px;
+  }
+
+  .yumi-fab-mascot {
+    margin: 0;
+    padding: 0;
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+    pointer-events: none;
+    background: transparent;
+    overflow: hidden;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(0 4px 10px rgba(62, 58, 142, 0.3));
+  }
+
+  /* Pill içinde düz duruş; taşma yok */
+  .yumi-fab-mascot-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    object-fit: cover;
+    object-position: center 5%;
+    background: transparent !important;
+    transform: scale(1.21);
+    transform-origin: center 11%;
+  }
+
+  .yumi-fab-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
+    padding: 0 2px 0 0;
+    min-width: 0;
+    flex: 1;
+    text-align: center;
+  }
+
+  .yumi-fab-line {
+    display: block;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+  }
+
+  .yumi-fab-line--name {
+    font-size: 12px;
+    font-weight: 700;
+    opacity: 0.86;
+    text-transform: none;
+  }
+
+  .yumi-fab-line--cta {
+    font-size: 17px;
+    font-weight: 800;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.12);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .yumi-chat-mascot-floor .yumi-chat-mascot-img {
+      animation: none !important;
+    }
+    .yumi-chat-thread {
+      scroll-behavior: auto;
+    }
+    .yumi-typing-dot {
+      animation: none !important;
+      opacity: 0.7;
+    }
+  }
+
+  .yumi-chat {
+    position: fixed;
+    right: max(20px, env(safe-area-inset-right, 0px));
+    bottom: calc(64px + env(safe-area-inset-bottom, 0px));
+    width: min(440px, calc(100vw - 28px));
+    height: min(560px, 80vh);
+    max-height: min(560px, 80vh);
+    background: #ffffff;
+    border: 1px solid rgba(62,58,142,0.22);
+    border-radius: 18px;
+    box-shadow: 0 24px 44px -26px rgba(62,58,142,0.46), 0 16px 30px -24px rgba(230,8,123,0.45);
+    overflow: hidden;
+    z-index: 126;
+    display: none;
+    flex-direction: column;
+  }
+  .yumi-chat.open { display: flex; }
+
+  .yumi-chat-head {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px 14px 12px;
+    background: linear-gradient(120deg, #3e3a8e, #e6087b);
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .yumi-chat-head-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .yumi-chat-head-text { flex: 1; min-width: 0; }
+  .yumi-chat-title { font-size: 15px; font-weight: 800; line-height: 1.25; }
+  .yumi-chat-sub {
+    font-size: 12px;
+    font-weight: 500;
+    opacity: 0.94;
+    margin: 6px 0 0;
+    line-height: 1.45;
+  }
+  .yumi-chat-close {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255,255,255,0.18);
+    color: #fff;
+    cursor: pointer;
+    font-size: 22px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s ease;
+  }
+  .yumi-chat-close:hover {
+    background: rgba(255,255,255,0.28);
+  }
+  .yumi-chat-head-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .yumi-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: rgba(0,0,0,0.14);
+    border: 1px solid rgba(255,255,255,0.22);
+    max-width: 100%;
+  }
+  .yumi-status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #7cffa8;
+    box-shadow: 0 0 0 2px rgba(124,255,168,0.35);
+    flex-shrink: 0;
+  }
+  .yumi-chat-reset {
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.35);
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease;
+    white-space: nowrap;
+  }
+  .yumi-chat-reset:hover {
+    background: rgba(255,255,255,0.22);
+    border-color: rgba(255,255,255,0.5);
+  }
+
+  .yumi-chat-body {
+    position: relative;
+    padding: 0;
+    background:
+      radial-gradient(110% 80% at 100% 100%, rgba(142, 84, 233, 0.09), transparent 52%),
+      #faf8ff;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+  }
+  .yumi-chat-body-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+    padding: 0;
+    padding-right: min(72px, 20%);
+  }
+
+  .yumi-chat-mascot-floor {
+    position: absolute;
+    right: 2px;
+    bottom: 0;
+    width: 72px;
+    height: 92px;
+    z-index: 0;
+    pointer-events: none;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background: transparent;
+    overflow: visible;
+  }
+  .yumi-chat-mascot-floor .yumi-chat-mascot-img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    object-position: bottom center;
+    background: transparent !important;
+    filter: drop-shadow(0 3px 8px rgba(62, 58, 142, 0.2));
+    transform-origin: 50% 100%;
+    animation: yumiStandFloat 3.2s ease-in-out infinite;
+  }
+  @keyframes yumiStandFloat {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-3px);
+    }
+  }
+
+  .yumi-chat-thread-wrap {
+    flex: 1;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    padding: 12px 12px 8px;
+    overflow: hidden;
+  }
+  .yumi-chat-thread {
+    flex: 1;
+    min-height: 0;
+    max-height: min(252px, 36vh);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding-right: 6px;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+  }
+
+  .yumi-msg-row {
+    display: flex;
+    gap: 8px;
+    align-items: flex-end;
+    max-width: 100%;
+  }
+  .yumi-msg-row--user {
+    justify-content: flex-end;
+  }
+  .yumi-msg-row--typing {
+    opacity: 0.92;
+  }
+
+  .yumi-msg-avatar {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 9px;
+    background: linear-gradient(145deg, #5c4dc4, #e6087b);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(62, 58, 142, 0.25);
+  }
+  .yumi-msg-avatar-inner {
+    font-size: 12px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1;
+  }
+
+  .yumi-msg-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+    max-width: calc(100% - 36px);
+  }
+  .yumi-msg-stack--user {
+    align-items: flex-end;
+    max-width: 92%;
+  }
+
+  .yumi-msg-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    padding: 0 2px;
+    font-size: 10px;
+    color: #6b6298;
+  }
+  .yumi-msg-meta--user {
+    flex-direction: row-reverse;
+  }
+  .yumi-msg-sender {
+    font-weight: 800;
+    color: #4a4380;
+    letter-spacing: 0.02em;
+  }
+  .yumi-msg-meta--user .yumi-msg-sender {
+    color: #7a739c;
+  }
+  .yumi-msg-time {
+    font-variant-numeric: tabular-nums;
+    opacity: 0.85;
+    font-weight: 600;
+  }
+
+  .yumi-msg {
+    border-radius: 16px;
+    padding: 10px 13px;
+    font-size: 13px;
+    line-height: 1.52;
+    word-break: break-word;
+  }
+  .yumi-msg-content p {
+    margin: 0;
+  }
+  .yumi-msg-content p + p {
+    margin-top: 0.65em;
+  }
+  .yumi-msg--bot {
+    background: #fff;
+    border: 1px solid rgba(62,58,142,0.12);
+    color: #2c285f;
+    border-bottom-left-radius: 6px;
+    box-shadow: 0 2px 12px -4px rgba(62, 58, 142, 0.12);
+  }
+  .yumi-msg--user {
+    background: linear-gradient(135deg, #4f4498, #c9076e);
+    border: none;
+    color: #fff;
+    border-bottom-right-radius: 6px;
+    box-shadow: 0 2px 12px -4px rgba(201, 7, 110, 0.35);
+  }
+  .yumi-msg--user .yumi-msg-content p {
+    margin: 0;
+  }
+
+  .yumi-typing-bubble {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 12px 16px;
+    border-radius: 16px;
+    border-bottom-left-radius: 6px;
+    background: #fff;
+    border: 1px solid rgba(62,58,142,0.12);
+    box-shadow: 0 2px 10px -4px rgba(62, 58, 142, 0.1);
+  }
+  .yumi-typing-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #a59ce0;
+    animation: yumiTypingBounce 1.05s ease-in-out infinite;
+  }
+  .yumi-typing-dot:nth-child(2) { animation-delay: 0.15s; }
+  .yumi-typing-dot:nth-child(3) { animation-delay: 0.3s; }
+  @keyframes yumiTypingBounce {
+    0%, 80%, 100% { transform: translateY(0); opacity: 0.45; }
+    40% { transform: translateY(-4px); opacity: 1; }
+  }
+
+  .yumi-suggestions {
+    flex-shrink: 0;
+  padding: 0 12px 7px;
+  border-top: 1px solid rgba(62,58,142,0.08);
+  background:
+    linear-gradient(180deg, rgba(242, 241, 255, 0.82), rgba(248, 247, 255, 0.98)),
+    radial-gradient(120% 100% at 10% 0%, rgba(124, 92, 255, 0.08), transparent 60%);
+  }
+  .yumi-quick-label {
+  margin: 7px 0 6px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+    text-transform: uppercase;
+  color: #7469a9;
+  }
+  .yumi-quick-scroll {
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin: 0 -12px;
+    padding: 0 12px 4px;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+  }
+  .yumi-quick {
+    display: flex;
+    flex-wrap: nowrap;
+  gap: 6px;
+    width: max-content;
+    padding-bottom: 2px;
+  }
+  .yumi-chip {
+    font-family: 'Montserrat', system-ui, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 7px 11px;
+    border-radius: 999px;
+  border: 1px solid rgba(124,92,255,0.22);
+  background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(242,240,255,0.98));
+  color: #4a418d;
+    cursor: pointer;
+    line-height: 1.25;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 1px 6px rgba(62, 58, 142, 0.08);
+  }
+  .yumi-chip:hover {
+  background: linear-gradient(135deg, rgba(124,92,255,0.12), rgba(230,8,123,0.08));
+  border-color: rgba(230,8,123,0.3);
+    transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(62, 58, 142, 0.14);
+  }
+
+  .yumi-chat-composer {
+    flex-shrink: 0;
+    padding: 10px 12px 12px;
+    background: #fff;
+    border-top: 1px solid rgba(62,58,142,0.12);
+    box-shadow: 0 -6px 20px -12px rgba(62, 58, 142, 0.2);
+  }
+  .yumi-chat-input-row {
+    display: flex;
+    gap: 8px;
+    align-items: flex-end;
+  }
+  .yumi-chat-field {
+    flex: 1;
+    min-width: 0;
+    min-height: 44px;
+    max-height: 120px;
+    resize: none;
+    border-radius: 14px;
+    border: 1px solid rgba(62,58,142,0.2);
+    padding: 11px 14px;
+    outline: none;
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 1.45;
+    background: #faf8ff;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  }
+  .yumi-chat-field::placeholder {
+    color: #9a94b8;
+  }
+  .yumi-chat-field:focus {
+    border-color: rgba(230,8,123,0.45);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(230,8,123,0.12);
+  }
+  .yumi-send-btn {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, #4f4498, #e6087b);
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.15s ease, filter 0.15s ease, opacity 0.15s ease;
+    box-shadow: 0 2px 10px rgba(201, 7, 110, 0.28);
+  }
+  .yumi-send-btn:hover:not(:disabled) {
+    filter: brightness(1.06);
+    transform: translateY(-1px);
+  }
+  .yumi-send-btn:disabled {
+    opacity: 0.38;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+  .yumi-send-icon {
+    display: flex;
+    margin-top: -2px;
+    margin-right: -1px;
+  }
+  .yumi-composer-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: 6px;
+    font-size: 10px;
+    color: #8b84ae;
+  }
+  .yumi-composer-hint kbd {
+    font-family: ui-monospace, monospace;
+    font-size: 9px;
+    padding: 1px 4px;
+    border-radius: 4px;
+    border: 1px solid rgba(62,58,142,0.18);
+    background: rgba(62,58,142,0.06);
+    color: #5c5488;
+  }
+  .yumi-char-count {
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+    color: #a39cc4;
+  }
+  @media (max-width: 640px) {
+    .yumi-fab-shell {
+      bottom: max(14px, env(safe-area-inset-bottom, 0px));
+      right: max(10px, env(safe-area-inset-right, 0px));
+      max-width: calc(100vw - 20px);
+    }
+    .yumi-fab-launcher {
+      padding: 7px 14px 7px 8px;
+      gap: 7px;
+      width: min(286px, calc(100vw - 20px));
+      max-width: calc(100vw - 20px);
+    }
+    .yumi-fab-mascot {
+      width: 52px;
+      height: 52px;
+    }
+    .yumi-fab-mascot-img {
+      width: 100%;
+      height: 100%;
+      object-position: center 5%;
+      transform: scale(1.175);
+      transform-origin: center 11%;
+    }
+    .yumi-fab-line--cta {
+      font-size: 14px;
+    }
+    .yumi-fab-line--name {
+      font-size: 11px;
+    }
+    .yumi-chat {
+      right: max(12px, env(safe-area-inset-right, 0px));
+      bottom: calc(56px + env(safe-area-inset-bottom, 0px));
+      width: calc(100vw - 24px);
+      max-width: 440px;
+      height: min(520px, 78vh);
+      max-height: min(520px, 78vh);
+    }
+    .yumi-chat-body-inner {
+      padding-right: min(60px, 18%);
+    }
+    .yumi-chat-thread {
+      max-height: min(220px, 33vh);
+    }
+    .yumi-chat-thread-wrap {
+      padding: 10px 10px 6px;
+    }
+    .yumi-suggestions {
+      padding: 0 10px 6px;
+    }
+    .yumi-quick-scroll {
+      margin: 0 -10px;
+      padding: 0 10px 4px;
+    }
+    .yumi-chat-composer {
+      padding: 8px 10px 10px;
+    }
+    .yumi-chat-mascot-floor {
+      width: 58px;
+      height: 74px;
+      right: 1px;
+    }
+    .yumi-chip { font-size: 10.5px; padding: 7px 11px; }
+    .yumi-composer-hint { display: none; }
+  }
