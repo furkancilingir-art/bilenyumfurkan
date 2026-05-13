@@ -2,9 +2,62 @@
 declare(strict_types=1);
 
 /**
- * Vercel giriş noktası: temiz URL ve *.php isteklerini src/pages altındaki
- * şablona yönlendirir. SCRIPT_NAME, pricing-assets-path.php ile uyumlu olacak şekilde ayarlanır.
+ * Vercel giriş noktası: önce statik dosyaları diskten döndürür (CSS/JS/SVG vb.),
+ * sonra temiz URL ve *.php isteklerini src/pages şablonlarına yönlendirir.
  */
+$projectRoot = realpath(__DIR__ . '/..');
+if ($projectRoot === false) {
+    http_response_code(500);
+    header('Content-Type: text/plain; charset=UTF-8');
+    echo 'Proje kökü çözülemedi.';
+    exit;
+}
+
+$uri = $_SERVER['REQUEST_URI'] ?? '/';
+$rawPath = parse_url($uri, PHP_URL_PATH);
+$rawPath = is_string($rawPath) ? str_replace('\\', '/', $rawPath) : '/';
+
+// --- Statik dosyalar (Vercel'de hepsi buraya düşebilir; slug mantığına sokma)
+if (preg_match('#\.([a-z0-9]+)$#i', $rawPath, $xm)) {
+    $ext = strtolower($xm[1]);
+    $staticExt = [
+        'css' => 'text/css; charset=UTF-8',
+        'js' => 'application/javascript; charset=UTF-8',
+        'mjs' => 'application/javascript; charset=UTF-8',
+        'svg' => 'image/svg+xml',
+        'png' => 'image/png',
+        'jpg' => 'image/jpeg',
+        'jpeg' => 'image/jpeg',
+        'gif' => 'image/gif',
+        'webp' => 'image/webp',
+        'ico' => 'image/x-icon',
+        'woff' => 'font/woff',
+        'woff2' => 'font/woff2',
+        'ttf' => 'font/ttf',
+        'eot' => 'application/vnd.ms-fontobject',
+        'map' => 'application/json',
+        'json' => 'application/json; charset=UTF-8',
+        'html' => 'text/html; charset=UTF-8',
+    ];
+    if (isset($staticExt[$ext])) {
+        $candidate = $projectRoot . $rawPath;
+        $real = realpath($candidate);
+        if ($real !== false
+            && str_starts_with($real, $projectRoot)
+            && is_file($real)
+        ) {
+            header('Content-Type: ' . $staticExt[$ext]);
+            header('Cache-Control: public, max-age=86400');
+            readfile($real);
+            exit;
+        }
+        http_response_code(404);
+        header('Content-Type: text/plain; charset=UTF-8');
+        echo 'Dosya bulunamadı.';
+        exit;
+    }
+}
+
 $pagesRealDir = realpath(__DIR__ . '/../src/pages');
 if ($pagesRealDir === false) {
     http_response_code(500);
@@ -27,9 +80,6 @@ $allowed = [
     'giris-kayit' => 'giris-kayit.php',
 ];
 
-$uri = $_SERVER['REQUEST_URI'] ?? '/';
-$rawPath = parse_url($uri, PHP_URL_PATH);
-$rawPath = is_string($rawPath) ? str_replace('\\', '/', $rawPath) : '/';
 $trimmed = trim($rawPath, '/');
 
 if ($trimmed === '') {

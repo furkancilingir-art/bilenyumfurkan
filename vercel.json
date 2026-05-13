@@ -5,9 +5,7 @@
       "maxDuration": 30
     }
   },
-  "routes": [
-    { "src": "/src/pages/(.*\\.php)$", "dest": "/api/index.php" },
-    { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "/api/index.php" }
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/api/index.php" }
   ]
 }
