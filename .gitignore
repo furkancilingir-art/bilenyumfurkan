@@ -1,3 +1,6 @@
+# Vercel build çıktısı (deploy sırasında üretilir)
+public/
+
 # Dependencies
 node_modules/
 

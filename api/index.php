@@ -5,19 +5,16 @@ declare(strict_types=1);
  * Vercel giriş noktası: önce statik dosyaları diskten döndürür (CSS/JS/SVG vb.),
  * sonra temiz URL ve *.php isteklerini src/pages şablonlarına yönlendirir.
  */
-$projectRoot = realpath(__DIR__ . '/..');
-if ($projectRoot === false) {
-    http_response_code(500);
-    header('Content-Type: text/plain; charset=UTF-8');
-    echo 'Proje kökü çözülemedi.';
-    exit;
-}
+$projectRoot = realpath(__DIR__ . '/..') ?: dirname(__DIR__);
 
 $uri = $_SERVER['REQUEST_URI'] ?? '/';
 $rawPath = parse_url($uri, PHP_URL_PATH);
 $rawPath = is_string($rawPath) ? str_replace('\\', '/', $rawPath) : '/';
+if ($rawPath === '') {
+    $rawPath = '/';
+}
 
-// --- Statik dosyalar (Vercel'de hepsi buraya düşebilir; slug mantığına sokma)
+// --- Statik dosyalar (Vercel Lambda'da realpath bazen false döner; includeFiles ile src/** paketlenir)
 if (preg_match('#\.([a-z0-9]+)$#i', $rawPath, $xm)) {
     $ext = strtolower($xm[1]);
     $staticExt = [
@@ -40,15 +37,20 @@ if (preg_match('#\.([a-z0-9]+)$#i', $rawPath, $xm)) {
         'html' => 'text/html; charset=UTF-8',
     ];
     if (isset($staticExt[$ext])) {
-        $candidate = $projectRoot . $rawPath;
-        $real = realpath($candidate);
-        if ($real !== false
-            && str_starts_with($real, $projectRoot)
-            && is_file($real)
-        ) {
+        if (str_contains($rawPath, '..')) {
+            http_response_code(400);
+            header('Content-Type: text/plain; charset=UTF-8');
+            echo 'Geçersiz yol.';
+            exit;
+        }
+        $candidate = $projectRoot . ($rawPath[0] === '/' ? $rawPath : '/' . $rawPath);
+        $normRoot = rtrim(str_replace('\\', '/', $projectRoot), '/');
+        $normCand = str_replace('\\', '/', $candidate);
+        $underRoot = str_starts_with($normCand, $normRoot . '/') || $normCand === $normRoot;
+        if ($underRoot && is_file($candidate) && is_readable($candidate)) {
             header('Content-Type: ' . $staticExt[$ext]);
             header('Cache-Control: public, max-age=86400');
-            readfile($real);
+            readfile($candidate);
             exit;
         }
         http_response_code(404);
@@ -58,8 +60,8 @@ if (preg_match('#\.([a-z0-9]+)$#i', $rawPath, $xm)) {
     }
 }
 
-$pagesRealDir = realpath(__DIR__ . '/../src/pages');
-if ($pagesRealDir === false) {
+$pagesRealDir = realpath(__DIR__ . '/../src/pages') ?: (dirname(__DIR__) . '/src/pages');
+if (!is_dir($pagesRealDir)) {
     http_response_code(500);
     header('Content-Type: text/plain; charset=UTF-8');
     echo 'src/pages bulunamadı.';
