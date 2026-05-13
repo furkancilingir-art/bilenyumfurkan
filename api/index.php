@@ -2,70 +2,22 @@
 declare(strict_types=1);
 
 /**
- * Vercel giriş noktası: önce statik dosyaları diskten döndürür (CSS/JS/SVG vb.),
- * sonra temiz URL ve *.php isteklerini src/pages şablonlarına yönlendirir.
+ * Vercel tek giriş: sadece sayfa PHP'leri. CSS/JS/SVG Vercel CDN'den
+ * public/src/components/... yoluyla sunulur; burada <base> veya http şeması yok.
  */
-$projectRoot = realpath(__DIR__ . '/..') ?: dirname(__DIR__);
-
-$uri = $_SERVER['REQUEST_URI'] ?? '/';
-$rawPath = parse_url($uri, PHP_URL_PATH);
-$rawPath = is_string($rawPath) ? str_replace('\\', '/', $rawPath) : '/';
-if ($rawPath === '') {
-    $rawPath = '/';
-}
-
-// --- Statik dosyalar (Vercel Lambda'da realpath bazen false döner; includeFiles ile src/** paketlenir)
-if (preg_match('#\.([a-z0-9]+)$#i', $rawPath, $xm)) {
-    $ext = strtolower($xm[1]);
-    $staticExt = [
-        'css' => 'text/css; charset=UTF-8',
-        'js' => 'application/javascript; charset=UTF-8',
-        'mjs' => 'application/javascript; charset=UTF-8',
-        'svg' => 'image/svg+xml',
-        'png' => 'image/png',
-        'jpg' => 'image/jpeg',
-        'jpeg' => 'image/jpeg',
-        'gif' => 'image/gif',
-        'webp' => 'image/webp',
-        'ico' => 'image/x-icon',
-        'woff' => 'font/woff',
-        'woff2' => 'font/woff2',
-        'ttf' => 'font/ttf',
-        'eot' => 'application/vnd.ms-fontobject',
-        'map' => 'application/json',
-        'json' => 'application/json; charset=UTF-8',
-        'html' => 'text/html; charset=UTF-8',
-    ];
-    if (isset($staticExt[$ext])) {
-        if (str_contains($rawPath, '..')) {
-            http_response_code(400);
-            header('Content-Type: text/plain; charset=UTF-8');
-            echo 'Geçersiz yol.';
-            exit;
-        }
-        $candidate = $projectRoot . ($rawPath[0] === '/' ? $rawPath : '/' . $rawPath);
-        $normRoot = rtrim(str_replace('\\', '/', $projectRoot), '/');
-        $normCand = str_replace('\\', '/', $candidate);
-        $underRoot = str_starts_with($normCand, $normRoot . '/') || $normCand === $normRoot;
-        if ($underRoot && is_file($candidate) && is_readable($candidate)) {
-            header('Content-Type: ' . $staticExt[$ext]);
-            header('Cache-Control: public, max-age=86400');
-            readfile($candidate);
-            exit;
-        }
-        http_response_code(404);
-        header('Content-Type: text/plain; charset=UTF-8');
-        echo 'Dosya bulunamadı.';
-        exit;
-    }
-}
-
 $pagesRealDir = realpath(__DIR__ . '/../src/pages') ?: (dirname(__DIR__) . '/src/pages');
 if (!is_dir($pagesRealDir)) {
     http_response_code(500);
     header('Content-Type: text/plain; charset=UTF-8');
     echo 'src/pages bulunamadı.';
     exit;
+}
+
+$uri = $_SERVER['REQUEST_URI'] ?? '/';
+$rawPath = parse_url($uri, PHP_URL_PATH);
+$rawPath = is_string($rawPath) ? str_replace('\\', '/', $rawPath) : '/';
+if ($rawPath === '') {
+    $rawPath = '/';
 }
 
 $allowed = [
@@ -83,7 +35,6 @@ $allowed = [
 ];
 
 $trimmed = trim($rawPath, '/');
-
 if ($trimmed === '') {
     $slug = 'landing-reference';
 } else {
@@ -111,30 +62,11 @@ $_SERVER['SCRIPT_NAME'] = '/src/pages/' . $file;
 $_SERVER['PHP_SELF'] = $_SERVER['SCRIPT_NAME'];
 chdir($pagesRealDir);
 
-$host = $_SERVER['HTTP_HOST'] ?? 'localhost';
-$isVercel = getenv('VERCEL') === '1' || getenv('VERCEL') === 'true';
-$xfProto = strtolower((string) ($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? ''));
-$scheme = 'http';
-if ($xfProto === 'https') {
-    $scheme = 'https';
-} elseif (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') {
-    $scheme = 'https';
-} elseif ($isVercel) {
-    $scheme = 'https';
-}
-$baseHref = $scheme . '://' . $host . '/src/pages/';
-
 ob_start();
 require $fullPath;
 $html = ob_get_clean();
-
 if ($html === false) {
     exit;
-}
-
-if (stripos($html, '<base ') === false && preg_match('/<head(\s[^>]*)?>/i', $html, $m, PREG_OFFSET_CAPTURE)) {
-    $inject = $m[0][0] . "\n  <base href=\"" . htmlspecialchars($baseHref, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') . "\" />";
-    $html = substr_replace($html, $inject, $m[0][1], strlen($m[0][0]));
 }
 
 $phpToPath = [];
@@ -156,28 +88,24 @@ $html = preg_replace_callback(
     $html
 );
 
-// Vercel: göreli ../components → tam https URL (mixed content; bloklanan CSS/JS önlenir).
-if ($isVercel && $host !== '' && $host !== 'localhost') {
-    $origin = 'https://' . $host;
-    $absPairs = [
-        'href="../components/' => 'href="' . $origin . '/src/components/',
-        "href='../components/" => "href='" . $origin . '/src/components/',
-        'src="../components/' => 'src="' . $origin . '/src/components/',
-        "src='../components/" => "src='" . $origin . '/src/components/',
-        'srcset="../components/' => 'srcset="' . $origin . '/src/components/',
-        "srcset='../components/" => "srcset='" . $origin . '/src/components/',
-        'href="../../assets/' => 'href="' . $origin . '/assets/',
-        "href='../../assets/" => "href='" . $origin . '/assets/',
-        'src="../../assets/' => 'src="' . $origin . '/assets/',
-        "src='../../assets/" => "src='" . $origin . '/assets/",
+$onVercel = getenv('VERCEL') === '1' || getenv('VERCEL') === 'true';
+if ($onVercel) {
+    // Kökten mutlak yol: tarayıcı her zaman https + aynı host kullanır; mixed content olmaz.
+    $pairs = [
+        'href="../components/' => 'href="/src/components/',
+        "href='../components/" => "href='/src/components/",
+        'src="../components/' => 'src="/src/components/',
+        "src='../components/" => "src='/src/components/",
+        'srcset="../components/' => 'srcset="/src/components/',
+        "srcset='../components/" => "srcset='/src/components/",
+        'href="../../assets/' => 'href="/assets/',
+        "href='../../assets/" => "href='/assets/",
+        'src="../../assets/' => 'src="/assets/',
+        "src='../../assets/" => "src='/assets/",
     ];
-    foreach ($absPairs as $from => $to) {
+    foreach ($pairs as $from => $to) {
         $html = str_replace($from, $to, $html);
     }
-}
-
-if ($scheme === 'https' && $host !== '' && $host !== 'localhost') {
-    $html = str_replace('http://' . $host, 'https://' . $host, $html);
 }
 
 echo $html;

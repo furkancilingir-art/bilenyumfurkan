@@ -47,6 +47,6 @@ node scripts/generate-pricing-utf8.mjs
 
 1. Bu klasörde git başlatıp GitHub’a itin (boş repo, token ile HTTPS).
 2. Vercel’de **Import** → aynı repo → **Root Directory** `.` (repo kökü `Bilenyum v2` ise).
-3. Deploy sonrası PHP sayfaları **temiz URL** ile açılır (ör. `/giris-kayit`); `vercel-php` için `vercel.json` ve `api/index.php` kullanılır. Her deploy öncesi `node scripts/vercel-copy-static.mjs` ile `src/components` → `public/src/components` kopyalanır. **Vercel’de** `api/index.php` CSS/JS/img adreslerini `https://<host>/src/...` olarak mutlak yazar (mixed content engeli kalkar).
+3. Deploy sonrası PHP sayfaları **temiz URL** ile açılır (ör. `/giris-kayit`); `vercel-php` için `vercel.json` ve `api/index.php` kullanılır. Build: `node scripts/vercel-copy-static.mjs` → `public/src/components/...` (Vercel bunları `/src/components/...` olarak sunar). **Vercel’de** HTML içindeki `../components/` ve `../../assets/` yolları otomatik olarak **`/src/components/`** ve **`/assets/`** kök yoluna çevrilir (şema/host yok → mixed content yok).
 
 Yerel geliştirme yine `php -S 127.0.0.1:8080 -t src/pages` ile yapılır; Vercel ortamında `VERCEL` değişkeni ile görsel taban yolu otomatik ayarlanır.

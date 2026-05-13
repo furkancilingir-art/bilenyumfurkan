@@ -1,4 +1,5 @@
 {
+  "buildCommand": "node scripts/vercel-copy-static.mjs",
   "functions": {
     "api/index.php": {
       "runtime": "vercel-php@0.9.0",
