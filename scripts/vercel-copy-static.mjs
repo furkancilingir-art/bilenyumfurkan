@@ -1,28 +1,28 @@
 /**
- * Vercel build: CDN üzerinden /src/components/... yollarıyla sunulması için
- * src/components (ve varsa assets) -> public/ altına kopyalanır.
- * Rewrites tüm istekleri PHP'ye verse bile, Vercel önce public'teki dosyayı sunar.
+ * Vercel build: src/components (ve varsa assets) -> public/ altına kopyalanır.
+ * Böylece /src/components/... istekleri CDN'den sunulabilir.
  */
-import { cpSync, mkdirSync, existsSync } from 'node:fs';
-import { join, dirname } from 'node:path';
+import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { cpSync, mkdirSync, existsSync } from 'node:fs';
 
-const root = join(dirname(fileURLToPath(import.meta.url)), '..');
+const here = path.dirname(fileURLToPath(import.meta.url));
+const root = path.resolve(here, '..');
 
-const componentsSrc = join(root, 'src', 'components');
-const componentsDest = join(root, 'public', 'src', 'components');
+const componentsSrc = path.join(root, 'src', 'components');
+const componentsDest = path.join(root, 'public', 'src', 'components');
 if (existsSync(componentsSrc)) {
-  mkdirSync(dirname(componentsDest), { recursive: true });
+  mkdirSync(path.dirname(componentsDest), { recursive: true });
   cpSync(componentsSrc, componentsDest, { recursive: true });
   console.log('vercel-build: src/components -> public/src/components');
 } else {
   console.warn('vercel-build: src/components bulunamadı, atlanıyor.');
 }
 
-const assetsSrc = join(root, 'assets');
-const assetsDest = join(root, 'public', 'assets');
+const assetsSrc = path.join(root, 'assets');
+const assetsDest = path.join(root, 'public', 'assets');
 if (existsSync(assetsSrc)) {
-  mkdirSync(join(root, 'public'), { recursive: true });
+  mkdirSync(path.join(root, 'public'), { recursive: true });
   cpSync(assetsSrc, assetsDest, { recursive: true });
   console.log('vercel-build: assets -> public/assets');
 }
