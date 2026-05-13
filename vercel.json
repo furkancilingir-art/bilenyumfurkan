@@ -1,5 +1,4 @@
 {
-  "buildCommand": "node scripts/vercel-copy-static.mjs",
   "functions": {
     "api/index.php": {
       "runtime": "vercel-php@0.9.0",
@@ -7,17 +6,28 @@
     }
   },
   "rewrites": [
-    {
-      "source": "^/$",
-      "destination": "/api/index.php"
-    },
-    {
-      "source": "^/(landing-reference|egitim-setleri|kadromuz|neden-biz|aydinlatma-metni|ornek-videolar|bize-ulasin|kadro-detay|odeme-bilgileri|sikca-sorulan-sorular|giris-kayit)/?$",
-      "destination": "/api/index.php"
-    },
-    {
-      "source": "^/[^/]+\\.php$",
-      "destination": "/api/index.php"
-    }
+    { "source": "/", "destination": "/api/index.php" },
+    { "source": "/landing-reference", "destination": "/api/index.php" },
+    { "source": "/egitim-setleri", "destination": "/api/index.php" },
+    { "source": "/kadromuz", "destination": "/api/index.php" },
+    { "source": "/neden-biz", "destination": "/api/index.php" },
+    { "source": "/aydinlatma-metni", "destination": "/api/index.php" },
+    { "source": "/ornek-videolar", "destination": "/api/index.php" },
+    { "source": "/bize-ulasin", "destination": "/api/index.php" },
+    { "source": "/kadro-detay", "destination": "/api/index.php" },
+    { "source": "/odeme-bilgileri", "destination": "/api/index.php" },
+    { "source": "/sikca-sorulan-sorular", "destination": "/api/index.php" },
+    { "source": "/giris-kayit", "destination": "/api/index.php" },
+    { "source": "/landing-reference.php", "destination": "/api/index.php" },
+    { "source": "/egitim-setleri.php", "destination": "/api/index.php" },
+    { "source": "/kadromuz.php", "destination": "/api/index.php" },
+    { "source": "/neden-biz.php", "destination": "/api/index.php" },
+    { "source": "/aydinlatma-metni.php", "destination": "/api/index.php" },
+    { "source": "/ornek-videolar.php", "destination": "/api/index.php" },
+    { "source": "/bize-ulasin.php", "destination": "/api/index.php" },
+    { "source": "/kadro-detay.php", "destination": "/api/index.php" },
+    { "source": "/odeme-bilgileri.php", "destination": "/api/index.php" },
+    { "source": "/sikca-sorulan-sorular.php", "destination": "/api/index.php" },
+    { "source": "/giris-kayit.php", "destination": "/api/index.php" }
   ]
 }
