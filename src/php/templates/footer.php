@@ -4,8 +4,8 @@
     <div class="footer-main">
       <div class="footer-brand">
         <div class="footer-brand-logos" aria-hidden="true">
-          <img class="footer-logo-emblem" src="../components/images/bilenyum-emblem.png" alt="" width="56" height="56" decoding="async" />
-          <img class="footer-logo-wordmark" src="../../assets/logo.png" alt="Bilenyum" width="160" height="40" decoding="async" />
+          <img class="footer-logo-emblem" src="../../assets/emblem.svg" alt="" width="56" height="56" decoding="async" />
+          <img class="footer-logo-wordmark" src="../../assets/logo.svg" alt="Bilenyum" width="160" height="40" decoding="async" />
         </div>
         <p class="footer-tagline">Çocukların kendi yörüngelerinde, canlı sınıflarda öğrendiği yer.</p>
         <div class="footer-social" aria-label="Sosyal bağlantılar">

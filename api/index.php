@@ -102,6 +102,8 @@ if ($onVercel) {
         "href='../../assets/" => "href='/assets/",
         'src="../../assets/' => 'src="/assets/',
         "src='../../assets/" => "src='/assets/",
+        'srcset="../../assets/' => 'srcset="/assets/',
+        "srcset='../../assets/" => "srcset='/assets/",
     ];
     foreach ($pairs as $from => $to) {
         $html = str_replace($from, $to, $html);

@@ -9,7 +9,7 @@ $nav_page_intro_lead = isset($nav_page_intro_lead) ? trim((string) $nav_page_int
     <h1 id="neden-hero-title" class="title title--neden-page">Neden Bilenyum?</h1>
     <div class="neden-manifesto-brand" aria-hidden="true">
       <img
-        src="../components/images/bilenyum-emblem.png"
+        src="../../assets/emblem.svg"
         alt=""
         width="52"
         height="52"

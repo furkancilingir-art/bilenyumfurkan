@@ -1,9 +1,9 @@
 <?php
 /**
  * Bize Ulaşın — iletişim kanalları, form, harita, kurumsal şeffaflık.
- * $iletisimImgBase: pages’tan göreceli görsel kökü (örn. ../components/images/).
+ * Kurumsal amblem: repo kökündeki assets (Vercel’de /assets/… olarak yeniden yazılır).
  */
-$iletisim_emblem = ($iletisimImgBase ?? '../components/images/') . 'bilenyum-emblem.png';
+$iletisim_emblem = '../../assets/emblem.svg';
 ?>
 <div class="iletisim-cosmos-band">
   <div class="iletisim-cosmos-bg" aria-hidden="true">

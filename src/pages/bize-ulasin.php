@@ -6,7 +6,6 @@ if (!headers_sent()) {
 $nav_active = 'iletisim';
 
 require_once __DIR__ . '/../php/include/pricing-assets-path.php';
-$iletisimImgBase = $pricingImgWebBase;
 ?>
 <!doctype html>
 <html lang="tr">
