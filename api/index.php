@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+require_once __DIR__ . '/../src/php/include/vercel-cdn-base.php';
+
 /**
  * Vercel giriş noktası: önce statik dosyaları diskten döndürür (CSS/JS/SVG vb.),
  * sonra temiz URL ve *.php isteklerini src/pages şablonlarına yönlendirir.
@@ -146,5 +148,24 @@ $html = preg_replace_callback(
     },
     $html
 );
+
+$cdn = bilenyum_vercel_cdn_base();
+if ($cdn !== '') {
+    $pairs = [
+        'href="../components/' => 'href="' . $cdn . '/src/components/',
+        "href='../components/" => "href='" . $cdn . '/src/components/',
+        'src="../components/' => 'src="' . $cdn . '/src/components/',
+        "src='../components/" => "src='" . $cdn . '/src/components/',
+        'srcset="../components/' => 'srcset="' . $cdn . '/src/components/',
+        "srcset='../components/" => "srcset='" . $cdn . '/src/components/',
+        'href="../../assets/' => 'href="' . $cdn . '/assets/',
+        "href='../../assets/" => "href='" . $cdn . '/assets/',
+        'src="../../assets/' => 'src="' . $cdn . '/assets/',
+        "src='../../assets/" => "src='" . $cdn . '/assets/",
+    ];
+    foreach ($pairs as $from => $to) {
+        $html = str_replace($from, $to, $html);
+    }
+}
 
 echo $html;
