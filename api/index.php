@@ -113,8 +113,17 @@ $_SERVER['SCRIPT_NAME'] = '/src/pages/' . $file;
 $_SERVER['PHP_SELF'] = $_SERVER['SCRIPT_NAME'];
 chdir($pagesRealDir);
 
-$scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
 $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
+$xfProto = strtolower((string) ($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? ''));
+$scheme = 'http';
+if ($xfProto === 'https') {
+    $scheme = 'https';
+} elseif (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') {
+    $scheme = 'https';
+} elseif (getenv('VERCEL') === '1' || getenv('VERCEL') === 'true') {
+    // Vercel TLS sonlandırması: bazı isteklerde HTTPS boş gelir; sayfa yine https ile açılır.
+    $scheme = 'https';
+}
 $baseHref = $scheme . '://' . $host . '/src/pages/';
 
 ob_start();
@@ -166,6 +175,10 @@ if ($cdn !== '') {
     foreach ($pairs as $from => $to) {
         $html = str_replace($from, $to, $html);
     }
+}
+
+if ($scheme === 'https' && $host !== '' && $host !== 'localhost') {
+    $html = str_replace('http://' . $host, 'https://' . $host, $html);
 }
 
 echo $html;
