@@ -7,7 +7,7 @@ import { cpSync, mkdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const root = join(dirname(fileURLToPath(import.meta.url))), '..');
+const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 
 const componentsSrc = join(root, 'src', 'components');
 const componentsDest = join(root, 'public', 'src', 'components');
