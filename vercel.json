@@ -19,6 +19,7 @@
     { "source": "/odeme-bilgileri", "destination": "/api/index.php" },
     { "source": "/sikca-sorulan-sorular", "destination": "/api/index.php" },
     { "source": "/giris-kayit", "destination": "/api/index.php" },
+    { "source": "/paket-detay", "destination": "/paket-detay.html" },
     { "source": "/landing-reference.php", "destination": "/api/index.php" },
     { "source": "/egitim-setleri.php", "destination": "/api/index.php" },
     { "source": "/kadromuz.php", "destination": "/api/index.php" },

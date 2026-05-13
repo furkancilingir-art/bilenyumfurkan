@@ -313,8 +313,8 @@
           .map((f) => `<li>${pricingEscapeHtml(f)}</li>`)
           .join('');
         const alt = pricingEscapeHtml(c.alt || c.name);
-        const detailHref = `./paket-detay.html?paket=${encodeURIComponent(c.theme || '')}&sinif=${encodeURIComponent(grade)}`;
-        const checkoutHref = `./odeme-bilgileri.php?paket=${encodeURIComponent(c.theme || '')}&sinif=${encodeURIComponent(grade)}`;
+        const detailHref = `/paket-detay.html?paket=${encodeURIComponent(c.theme || '')}&sinif=${encodeURIComponent(grade)}`;
+        const checkoutHref = `/odeme-bilgileri?paket=${encodeURIComponent(c.theme || '')}&sinif=${encodeURIComponent(grade)}`;
         return `
       <div class="price-card${themeClass}">
         <div class="price-card-image">

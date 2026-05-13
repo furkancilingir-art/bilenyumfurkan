@@ -165,7 +165,7 @@
   }
 
   const checkoutHref =
-    'odeme-bilgileri.php?' +
+    '/odeme-bilgileri?' +
     new URLSearchParams({ paket: theme, sinif: grade }).toString();
   document.querySelectorAll('[data-pkg-checkout]').forEach((el) => {
     el.setAttribute('href', checkoutHref);
