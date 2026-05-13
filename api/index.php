@@ -1,8 +1,6 @@
 <?php
 declare(strict_types=1);
 
-require_once __DIR__ . '/../src/php/include/vercel-cdn-base.php';
-
 /**
  * Vercel giriş noktası: önce statik dosyaları diskten döndürür (CSS/JS/SVG vb.),
  * sonra temiz URL ve *.php isteklerini src/pages şablonlarına yönlendirir.
@@ -114,14 +112,14 @@ $_SERVER['PHP_SELF'] = $_SERVER['SCRIPT_NAME'];
 chdir($pagesRealDir);
 
 $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
+$isVercel = getenv('VERCEL') === '1' || getenv('VERCEL') === 'true';
 $xfProto = strtolower((string) ($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? ''));
 $scheme = 'http';
 if ($xfProto === 'https') {
     $scheme = 'https';
 } elseif (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') {
     $scheme = 'https';
-} elseif (getenv('VERCEL') === '1' || getenv('VERCEL') === 'true') {
-    // Vercel TLS sonlandırması: bazı isteklerde HTTPS boş gelir; sayfa yine https ile açılır.
+} elseif ($isVercel) {
     $scheme = 'https';
 }
 $baseHref = $scheme . '://' . $host . '/src/pages/';
@@ -158,21 +156,22 @@ $html = preg_replace_callback(
     $html
 );
 
-$cdn = bilenyum_vercel_cdn_base();
-if ($cdn !== '') {
-    $pairs = [
-        'href="../components/' => 'href="' . $cdn . '/src/components/',
-        "href='../components/" => "href='" . $cdn . '/src/components/',
-        'src="../components/' => 'src="' . $cdn . '/src/components/',
-        "src='../components/" => "src='" . $cdn . '/src/components/',
-        'srcset="../components/' => 'srcset="' . $cdn . '/src/components/',
-        "srcset='../components/" => "srcset='" . $cdn . '/src/components/',
-        'href="../../assets/' => 'href="' . $cdn . '/assets/',
-        "href='../../assets/" => "href='" . $cdn . '/assets/',
-        'src="../../assets/' => 'src="' . $cdn . '/assets/',
-        "src='../../assets/" => "src='" . $cdn . '/assets/",
+// Vercel: göreli ../components → tam https URL (mixed content; bloklanan CSS/JS önlenir).
+if ($isVercel && $host !== '' && $host !== 'localhost') {
+    $origin = 'https://' . $host;
+    $absPairs = [
+        'href="../components/' => 'href="' . $origin . '/src/components/',
+        "href='../components/" => "href='" . $origin . '/src/components/',
+        'src="../components/' => 'src="' . $origin . '/src/components/',
+        "src='../components/" => "src='" . $origin . '/src/components/',
+        'srcset="../components/' => 'srcset="' . $origin . '/src/components/',
+        "srcset='../components/" => "srcset='" . $origin . '/src/components/',
+        'href="../../assets/' => 'href="' . $origin . '/assets/',
+        "href='../../assets/" => "href='" . $origin . '/assets/',
+        'src="../../assets/' => 'src="' . $origin . '/assets/',
+        "src='../../assets/" => "src='" . $origin . '/assets/",
     ];
-    foreach ($pairs as $from => $to) {
+    foreach ($absPairs as $from => $to) {
         $html = str_replace($from, $to, $html);
     }
 }
