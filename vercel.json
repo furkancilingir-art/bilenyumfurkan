@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npm run vercel-build",
+  "buildCommand": "node scripts/vercel-copy-static.mjs",
   "functions": {
     "api/index.php": {
       "runtime": "vercel-php@0.9.0",
@@ -8,6 +8,17 @@
     }
   },
   "rewrites": [
-    { "source": "/(.*)", "destination": "/api/index.php" }
+    {
+      "source": "^/$",
+      "destination": "/api/index.php"
+    },
+    {
+      "source": "^/(landing-reference|egitim-setleri|kadromuz|neden-biz|aydinlatma-metni|ornek-videolar|bize-ulasin|kadro-detay|odeme-bilgileri|sikca-sorulan-sorular|giris-kayit)/?$",
+      "destination": "/api/index.php"
+    },
+    {
+      "source": "^/[^/]+\\.php$",
+      "destination": "/api/index.php"
+    }
   ]
 }
